@@ -1,9 +1,0 @@
-configuration {
-    modi: "window,run,ssh,drun";
-    show-icons: true;
-    icon-theme: "Paper";
-    hide-scrollbar: true;
-    diable-history: false;
-    columns: 2;
-}
- @theme "~/.config/rofi/Pop-Dark.rasi"
