@@ -1,0 +1,3 @@
+#! /bin/bash
+
+~/bin/power_on_bluetooth&

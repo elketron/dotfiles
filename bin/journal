@@ -1,0 +1,16 @@
+#!/bin/bash
+
+path_to_journal=$HOME/Documents
+file_name=journal.md
+Date=$(date +%y-%b-%a)
+temp_file=$(date +%y_%b_%a).md
+
+
+touch $temp_file
+
+echo "## $Date" > $temp_file
+
+$EDITOR $temp_file
+
+cat $temp_file >> $path_to_journal/$file_name
+rm $temp_file

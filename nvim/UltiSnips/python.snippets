@@ -1,0 +1,73 @@
+snippet #! 
+!#/usr/bin/env python3
+endsnippet 
+
+snippet from "from import"
+from ${1:package} import ${2:module}
+endsnippet 
+
+snippet wh "while loop"
+while ${1:condition}:
+	${2:pass}
+endsnippet 
+
+snippet with "with expression"
+with ${1:expr} as ${2:var}:
+	${3:pass}
+endsnippet 
+
+snippet for "for loop"
+for ${1:i} in ${2:range(len(${3:Var}))}:
+	${0:pass}
+endsnippet 
+
+snippet class "make a class with init"
+class ${1:name} (${2:object}):
+	def __init__(self,${3:arg}):
+		${4:super($1,self).__init__()}
+		self.$3 = $3
+		$0
+endsnippet
+
+snippet def "make a function"
+def ${1:name} (${2:params}):
+	${3:pass}
+endsnippet 
+
+snippet if "if statement"
+if ${1:condition}:
+	${2:pass}
+endsnippet 
+
+snippet elif "else if"
+elif ${1:condition}:
+	${2:pass}
+endsnippet 
+
+snippet else "else statemnt"
+else:
+	${1:pass}
+endsnippet 
+
+snippet lam "lambda expression"
+${1:Var} = lambda ${2:vars} : ${0:action}
+endsnippet 
+
+snippet try "try and except"
+try:
+	${1:${VISUAL}}
+except ${2:exception} as ${3:e}:
+	${0:raise $3}
+endsnippet 
+
+snippet imain "if main"
+if __name__ == '__main__':
+	${0:main()}
+endsnippet 
+
+snippet dec "makes a decorator"
+def ${1:decFun} (orig_func):
+	def wrapper(*args, **kwargs):
+		$0
+	return wrapper
+endsnippet 

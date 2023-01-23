@@ -1,0 +1,12 @@
+$HOME/.dotfiles/rofi $HOME/.config
+$HOME/.dotfiles/nvim $HOME/.config
+$HOME/.dotfiles/kitty $HOME/.config
+$HOME/.dotfiles/sway $HOME/.config
+$HOME/.dotfiles/dunst $HOME/.config
+$HOME/.dotfiles/qutebrowser $HOME/.config
+$HOME/.dotfiles/zathura $HOME/.config
+$HOME/.dotfiles/bin $HOME
+$HOME/.dotfiles/ranger $HOME/.config/ranger
+$HOME/.dotfiles/fish /home/odmar/.config/fish/
+$HOME/.dotfiles/wofi /home/odmar/.config/wofi/
+$HOME/.dotfiles/mpv /home/odmar/.config/mpv/

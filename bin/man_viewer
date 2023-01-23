@@ -1,0 +1,3 @@
+#!/bin/bash
+
+man $(ls /usr/share/man/man* | awk -F. '{print $1}' | wofi -d -p "man pages")

@@ -1,0 +1,9 @@
+#! /bin/bash
+
+file_with_size=$(du /etc/hosts)
+
+file_size=($(echo $file_with_size | tr " " "\n"))
+
+if [ $file_size -le 1000 ]; then
+    cat /home/odmar/hosts > /etc/hosts
+fi

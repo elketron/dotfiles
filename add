@@ -1,0 +1,16 @@
+#! /bin/bash
+
+# add links to the links file
+# and move the folder or file to the .dotfiles folder
+# add multiple input capabilities
+
+var=$1
+cur_dir='$HOME/.dotfiles'
+eval lin="$1"
+
+link="$(basename $lin)"
+mv $lin $(eval echo $cur_dir)
+echo "$cur_dir/$link" "$var" >> links
+lin=$(dirname $(eval echo $lin))
+var=$(eval echo "$cur_dir/$link")
+ln -sv $var "$lin"

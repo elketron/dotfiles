@@ -1,0 +1,212 @@
+snippet html "html context"
+<!DOCTYPE html>
+<html>
+	<head>
+		$0
+	</head>
+	<body>
+		
+	</body>
+</html> 
+endsnippet
+
+snippet com "make a comment" i
+<!-- $0 -->
+endsnippet 
+
+snippet "h([1-6])" "make a heading tag" r
+<h`!p snip.rv = match.group(1)`>$1</h`!p snip.rv = match.group(1)`>
+endsnippet 
+
+snippet p "paragraph"
+<p> $1 </p>
+endsnippet 
+
+snippet fb "bold text"
+<b>$1</b>
+endsnippet
+
+snippet fst "strong text"
+<strong>$1</strong>
+endsnippet 
+
+snippet fi "italic text"
+<i>$1</i>
+endsnippet
+
+snippet fem "emphasize text"
+<em>$1</em>
+endsnippet 
+
+snippet fma "marked text"
+<mark>$1</mark>
+endsnippet 
+
+snippet fsm "small text"
+<small>$1</small>
+endsnippet 
+
+snippet fd "deleted text"
+<del>$1</del>
+endsnippet 
+
+snippet fin "inserted text"
+<ins>$1</ins>
+endsnippet 
+
+snippet fsu "subscript text"
+<sub>$1</sub>
+endsnippet 
+
+snippet fs "superscript text"
+<sup>$1</sup>
+endsnippet 
+
+snippet css "link to css file"
+<link rel="stylesheet" href="${1:style.css}">
+endsnippet 
+
+snippet a "link to website"
+<a href="$1">${2:$1}</a>
+endsnippet 
+
+snippet bu "button element"
+<button onclick="$1">$2</button>
+endsnippet 
+
+snippet img "image element"
+<img src="${1:source.jpg}" alt="${2:some text}">
+endsnippet 
+
+snippet tab "table element"
+<table>
+	$1
+</table>
+endsnippet 
+
+snippet tr "table tow element"
+<tr>
+	$1
+</tr>
+endsnippet 
+
+snippet th "table header element"
+<th>$1</th>
+endsnippet
+
+snippet td "table data"
+<td>$1</td>
+endsnippet 
+
+snippet ul "unordered list"
+<ul>
+	$1
+</ul>
+endsnippet 
+
+snippet ol "ordered list"
+<ol>
+	$1
+</ol>
+endsnippet 
+
+snippet dl "description list"
+<dl>
+	$1
+</dl>
+endsnippet 
+
+snippet li "list item"
+<li>$1</li>
+endsnippet 
+
+snippet dt "description term"
+<dt>$1</dt>
+endsnippet 
+
+snippet dd "description description"
+<dd>$1</dd>
+endsnippet 
+
+snippet div "section in block level"
+<div>
+	$1
+</div>
+endsnippet 
+
+snippet span "section in inline level"
+<span>
+	$1
+</span>
+endsnippet 
+
+snippet iframe "inline frame"
+<iframe src="${1:url}" title="${2:title}"></iframe>
+endsnippet 
+
+snippet scr "script element"
+<script src="${1:filepath}"></script>
+endsnippet 
+
+snippet base "base element"
+<base href="${1:link}">
+endsnippet 
+
+snippet title "title element"
+<title>$1</title>
+endsnippet 
+
+snippet meta "meta element"
+<meta $1>
+endsnippet 
+
+snippet form "form element"
+<form>
+$1
+</form>
+endsnippet
+
+snippet inp "input element"
+<input type="${1:text}" id="${2:text}">
+endsnippet 
+
+snippet label "label element"
+<label for="${1:text}">
+endsnippet 
+
+snippet select "select element"
+<select id="$1" name="$2">
+	$3
+</select>
+endsnippet 
+
+snippet option "option element"
+<option value="$1">${2:$1}</option>
+endsnippet 
+
+snippet texta "textarea element"
+<textarea row="$1" col="$2">
+	$3
+</textarea>
+endsnippet 
+
+snippet fis "fieldset element"
+<fieldset>
+	${1:<legend>$2</legend>}
+	$2
+</fieldset>
+endsnippet 
+
+snippet dal "datalist element"
+<datalist id="$1">
+$2
+</datalist>
+endsnippet 
+
+snippet out "output element"
+<output name=$1 for="$2"></output>
+endsnippet 
+
+snippet tag "empty html tag"
+<${1:tag}></$1>
+endsnippet

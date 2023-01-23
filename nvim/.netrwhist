@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/odmar/Projects/trading_Bot/src'
+let g:netrw_dirhist_9='/home/odmar/Projects/trading_Bot/src/trading_bot'
+let g:netrw_dirhist_8='/home/odmar/Projects/trading_Bot/src'
+let g:netrw_dirhist_7='/home/odmar/Projects/trading_Bot/src/trading_bot'
+let g:netrw_dirhist_6='/home/odmar/Projects/trading_Bot/src'
+let g:netrw_dirhist_5='/home/odmar/Projects/trading_Bot/src/tests'
+let g:netrw_dirhist_4='/home/odmar/Projects/trading_Bot/src'
+let g:netrw_dirhist_3='/home/odmar/Projects/trading_Bot/src/trading_bot'
+let g:netrw_dirhist_2='/home/odmar/Projects/trading_Bot/src'
+let g:netrw_dirhist_1='/home/odmar/Projects/trading_Bot/src/trading_bot'

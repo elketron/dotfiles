@@ -1,0 +1,11 @@
+#! /bin/bash
+path_to_music=~/Music/instrumental
+
+music=($(echo $(ls $path_to_music)))
+len=${#music[@]}
+
+RANDOM=$(date +%s%N | cut -b10-19)
+ran_num=$(( $RANDOM % ${#music[@]} + 1 ))
+
+mpv $path_to_music/"${music[$ran_num]}"
+

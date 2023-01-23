@@ -1,0 +1,10 @@
+local utils = require('utils')
+
+utils.map('n', ',ff', '<cmd>Telescope find_files<cr>')
+utils.map('n', ',fg', '<cmd>Telescope live_grep<cr>')
+utils.map('n', ',fb', '<cmd>Telescope buffers<cr>')
+utils.map('n', ',fh', '<cmd>Telescope help_tags<cr>')
+utils.map('n', ',gc', ':lua require("telescope.builtin").git_commits()<cr>')
+utils.map('n', ',gb', ':lua require("telescope.builtin").git_branches()<cr>')
+utils.map('n', ',gs', ':lua require("telescope.builtin").git_status()<cr>')
+utils.map('n', ',tr', ':lua require("telescope.builtin").treesitter()<cr>')

@@ -1,0 +1,39 @@
+#loops
+
+snippet while  "while loop" i
+while(${1:condition}) do
+	$2
+end
+endsnippet 
+
+snippet for "for loop" i
+for ${1: ${2:_,k} in ipairs($3)} do
+	$4
+end
+endsnippet 
+
+snippet rep "repeat until loop"
+repeat
+	${1:statements}
+until(${2:contidtion})
+endsnippet 
+
+# if statments
+
+snippet if "if statement"
+if ${1:condition} then
+	$2
+end
+endsnippet 
+
+# functions
+
+snippet func "function"
+${1:local }function ${2:name}(${3:args})
+	$4
+end
+endsnippet 
+
+snippet req "require" i
+require'${1:file}'
+endsnippet 

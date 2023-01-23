@@ -1,0 +1,36 @@
+snippet fcom "yew function component"
+#[derive(PartialEq, Properties)]
+pub struct ${1:Name}Props {
+
+}
+
+#[function_component]
+pub fn $1 (props: &$1Props) -> Html {
+    html! {
+        <${2:tag}>$0</$2>
+    }
+}
+
+endsnippet
+
+snippet scom "struct component"
+struct ${1:Name};
+
+enum $1Msg {
+}
+
+impl Component for $1 {
+    type Message = $1Msg;
+    type Properties = ();
+
+    fn create(ctx: &Context<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, ctx: &Context<Self>) -> Html {
+        html! {
+            $0
+        }
+    }
+}
+endsnippet

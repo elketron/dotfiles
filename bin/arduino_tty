@@ -1,0 +1,36 @@
+#! /bin/bash
+
+
+mode=$1
+port=$2
+
+read(){
+    stty -F $port cs8 9600 ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
+    cat $port
+}
+
+write(){
+    stty -F $port cs8 9600 ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
+    read message
+    echo -n $message > $port
+}
+
+help(){
+    echo "this is a help message"
+    echo "arduino_tty mode port"
+    echo "modes:"
+    echo "  r: read, reads from the arduino"
+    echo "  w: write, writes to arduino"
+    echo "  h: help, this help message"
+}
+
+if [[ $mode == "r" ]]; then
+    read
+
+elif [[ $mode == "w" ]]; then
+    write
+
+elif [[ $mode == "h" ]]; then
+    help
+fi
+
