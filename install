@@ -1,0 +1,5 @@
+#! /bin/bash
+
+envsubst < links | while read i; do
+    ln -sfv $i
+done
