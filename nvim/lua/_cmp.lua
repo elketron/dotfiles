@@ -18,13 +18,13 @@ cmp.setup({
       { name = 'nvim_lsp' },
       { name = 'luasnip' }, -- For luasnip users.
       { name = 'path' }, -- For luasnip users.
-      { name = 'cmdline' }, -- For luasnip users.
+      --{ name = 'cmdline' }, -- For luasnip users.
       --{ name = 'buffer-lines'},
       { name = 'calc' },
-     --{ name = "rg", },
+      { name = "rg", },
       { name = 'nvim_lsp_signature_help' },
     }, {
-      { name = 'buffer' },
+      --{ name = 'buffer' },
   })
 })
 
