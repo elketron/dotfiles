@@ -1,0 +1,17 @@
+#!/bin/bash
+
+type=$1
+name=$2
+test_dir=$name.Test
+
+#Project
+dotnet new $type -n $name
+dotnet sln add $name
+
+#Test
+dotnet new mstest -n $test_dir
+cd $test_dir
+dotnet add reference ../$name
+cd ..
+
+dotnet sln add $test_dir
