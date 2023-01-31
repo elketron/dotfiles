@@ -4,7 +4,6 @@ require("neodev").setup({
 })
 
 local lsp = require'lspconfig'
-local utils = require'utils'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -97,4 +96,4 @@ end
 -- Set up lspconfig.
 
 
-vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
+--vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]

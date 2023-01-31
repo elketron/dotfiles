@@ -6,7 +6,7 @@ $HOME/dotfiles/dunst $HOME/.config
 $HOME/dotfiles/qutebrowser $HOME/.config
 $HOME/dotfiles/zathura $HOME/.config
 $HOME/dotfiles/bin $HOME
-$HOME/dotfiles/ranger $HOME/.config/ranger
-$HOME/dotfiles/fish $HOME.config/fish/
-$HOME/dotfiles/wofi $HOME.config/wofi/
-$HOME/dotfiles/mpv $HOME.config/mpv/
+$HOME/dotfiles/ranger $HOME/.config
+$HOME/dotfiles/fish $HOME/.config
+$HOME/dotfiles/wofi $HOME/.config
+$HOME/dotfiles/mpv $HOME/.config

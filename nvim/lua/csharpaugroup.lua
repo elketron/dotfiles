@@ -8,11 +8,11 @@ local csFormat = function (bufnr)
 end
 
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-	group = csGroup,
-	pattern = pattern,
-	callback = function () csFormat() end
-})
+--vim.api.nvim_create_autocmd("BufWritePost", {
+--	group = csGroup,
+--	pattern = pattern,
+--	callback = function () csFormat() end
+--})
 
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = csGroup,
