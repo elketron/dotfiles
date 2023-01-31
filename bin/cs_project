@@ -2,18 +2,21 @@
 
 type=$1
 name=$2
-test_dir=$name.Test
+test_dir=$name.Tests
 
 dotnet new sln --output $name
 cd $name
 dotnet new $type -n $name
 dotnet sln add $name
 
+mkdir test
+cd test
+
 dotnet new mstest -n $test_dir
 cd $test_dir
-dotnet add reference ../$name
-cd ..
+dotnet add reference ../../$name
+cd ../../
 
-dotnet sln add $test_dir
+dotnet sln add test/$test_dir
 
 git init
