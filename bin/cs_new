@@ -4,6 +4,13 @@ type=$1
 name=$2
 test_dir=$name.Tests
 
+if [ ! -f *sln ] 
+then
+  echo "sln file not found"
+  exit 1
+fi
+
+
 #Project
 dotnet new $type -n $name
 dotnet sln add $name
