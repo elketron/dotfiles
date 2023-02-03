@@ -24,6 +24,11 @@ local matches = require("luasnip.extras.postfix").matches
 local types = require("luasnip.util.types")
 local parse = require("luasnip.util.parser").parse_snippet
 
+local varTypes = {
+  list = {vars=1, node=t("list")},
+  dictionary = {vars=2, t("dictionary")}
+}
+
 local function choiceAccessModifiers(jump_index)
   return c(jump_index, {
     t"",
@@ -78,6 +83,19 @@ local function propsNode(parent)
   }, {})
 end
 
+local function variablesNodes(parent)
+  local match = parent.snippet.env.POSTFIX_MATCH:match'^%s*(.*)'
+  local args_table = vim.split(match, " ")
+  local var_name = textToUpper({unpack(args_table, 1, #args_table)})
+  return sn(nil, {
+    c(1, {
+      sn(nil, {i(1, "int"), t(" ".. var_name .. " ="), i(0)}),
+      sn(nil, {i(1, "int"), t("[] " .. var_name .. " = "), i(2)}),
+      sn(nil, {t("List<"), i(1,"int"), t("> ".. var_name.. " = new List<"), rep(1), t(">")})
+    })
+  }, {})
+end
+
 local function getFileName()
   local file = vim.api.nvim_buf_get_name(0)
   file = vim.split(file:match("^.+/(.+)$"), "%.")[1]
@@ -101,9 +119,20 @@ return {
       i(0)}, {delimiters="<>"
     }),
   {}),
+  s("interface", fmt([[
+      interface <>
+      {
+        <>
+      }
+    ]], {p(getFileName), i(0)}, {delimiters = "<>"}),{}),
   postfix({match_pattern="^.+$", trig=".prop"}, {
     d(1, function (_,parent)
       return propsNode(parent)
+    end)
+  }),
+  postfix({match_pattern="^.+$", trig=".var"},{
+    d(1, function (_,parent)
+      return variablesNodes(parent)
     end)
   }),
 }

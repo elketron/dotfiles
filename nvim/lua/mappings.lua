@@ -6,11 +6,11 @@ vim.keymap.set('n', '<leader>P', '"*p')
 vim.keymap.set('n', '<leader>y', '"+y')
 vim.keymap.set('n', '<leader>p', '"+p')
 vim.keymap.set('n', '<leader>bn', ':bNext<cr>')
-vim.keymap.set('n', '<leader>bp', ':bPrevious<cr>')
+vim.keymap.set('n', '<leader>bp', ':bprevious<cr>')
 vim.keymap.set('n', '<leader>tt', ':term<cr>')
 
 vim.keymap.set('n', '<leader>eq', ':lua require("nabla").action()<cr>')
-
+vim.keymap.set('n', '<leader>re', ':lua vim.lsp.buf.rename()<cr>')
 
 vim.keymap.set('n', '<leader>cm', ':Com ')
 vim.keymap.set('n', '<leader>cu', ':Unc ')
