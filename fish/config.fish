@@ -23,6 +23,7 @@ alias se="sudoedit"
 alias ls="ls -A --color=always"
 alias mkd="mkdir (date +"%Y_%m_%d")"
 alias ocd="kitty (pwd)"
+alias asp-gen="dotnet-aspnet-codegenerator"
 
 alias v="nvim"
 alias upd="paru -Syu --sudoloop"
