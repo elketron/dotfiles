@@ -1,0 +1,13 @@
+#!/bin/bash
+
+name=$1
+
+dotnet new mvc -n $name
+
+cd $name
+
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SQLite
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
