@@ -32,19 +32,6 @@ luasnip.config.set_config {
   },
   ext_base_prio = 200,
 	ext_prio_increase = 2,
-	snip_env = {
-		s = function(...)
-			local snip = luasnip.s(...)
-			-- we can't just access the global `ls_file_snippets`, since it will be
-			-- resolved in the environment of the scope in which it was defined.
-			table.insert(getfenv(2).ls_file_snippets, snip)
-		end,
-		parse = function(...)
-			local snip = luasnip.parser.parse_snippet(...)
-			table.insert(getfenv(2).ls_file_snippets, snip)
-		end,
-	},
-
 }
 
 vim.keymap.set("i", "<A-l>", function ()

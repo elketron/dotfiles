@@ -1,40 +1,40 @@
 -- neodev
 require("neodev").setup({
-  -- add any options here, or leave empty to use the default settings
+    -- add any options here, or leave empty to use the default settings
 })
 
-local lsp = require'lspconfig'
+local lsp = require 'lspconfig'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- lsp config
 
-lsp.pyright.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
- }
+lsp.pyright.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
 --lsp.pylsp.setup{}
-lsp.clangd.setup{
-	on_attach = on_attach,
-	capabilities = capabilities,
+lsp.clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
 }
-lsp.html.setup{
-	on_attach = on_attach,
-	capabilities = capabilities,
+lsp.html.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
 }
-lsp.tsserver.setup{ capabilities = capabilities }
-lsp.angularls.setup{ capabilities = capabilities }
+lsp.tsserver.setup { capabilities = capabilities }
+lsp.angularls.setup { capabilities = capabilities }
 lsp.cssls.setup { capabilities = capabilities }
-lsp.csharp_ls.setup{ capabilities = capabilities }
+lsp.csharp_ls.setup { capabilities = capabilities }
 lsp.arduino_language_server.setup({
-  cmd = {
-  "arduino-language-server", 
-  "-cli-config", "~/.arduino15/arduino-cli.yaml" , 
-  "-fqbn", 'arduino:avr:nano'
-  },
-  capabilities = capabilities
+    cmd = {
+        "arduino-language-server",
+        "-cli-config", "~/.arduino15/arduino-cli.yaml",
+        "-fqbn", 'arduino:avr:nano'
+    },
+    capabilities = capabilities
 })
-lsp.sqlls.setup{ capabilities = capabilities }
+lsp.sqlls.setup { capabilities = capabilities }
 -- lsp.efm.setup{
 --   init_options = {documentFormatting = true},
 --   settings = {
@@ -47,20 +47,20 @@ lsp.sqlls.setup{ capabilities = capabilities }
 --   filetypes = { 'python', 'lua'}
 --}
 
-lsp.vuels.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
+lsp.vuels.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
 }
-lsp.bashls.setup{ capabilities = capabilities }
-lsp.rust_analyzer.setup{ capabilities = capabilities }
+lsp.bashls.setup { capabilities = capabilities }
+lsp.rust_analyzer.setup { capabilities = capabilities }
 lsp.sumneko_lua.setup({
-  settings = {
-    Lua = {
-      completion = {
-        callSnippet = "Replace"
-      }
+    settings = {
+        Lua = {
+            completion = {
+                callSnippet = "Replace"
+            }
+        }
     }
-  }
 })
 
 -- omnisharp
@@ -90,10 +90,6 @@ function PrintDiagnostics(opts, bufnr, line_nr, client_id)
       diagnostic_message = diagnostic_message .. "\n"
     end
   end
-  vim.api.nvim_echo({{diagnostic_message, "Normal"}}, false, {})
+  vim.api.nvim_echo({ { diagnostic_message, "Normal" } }, false, {})
 end
 
--- Set up lspconfig.
-
-
---vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
