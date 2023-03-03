@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Create cert
+dotnet dev-certs https
+
+# Export cert to current directory
+dotnet dev-certs https -ep localhost.crt --format PEM
+
+# Trust Chromium based browsers
+sudo -E dotnet dev-certs https -ep /usr/share/ca-certificates/aspnet/https.crt --format PEM
+certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n localhost -i /usr/share/ca-certificates/trust-source/anchors/aspnethttps.crt
+certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n localhost -i /usr/share/ca-certificates/trust-source/anchors/aspnethttps.crt
+
+# Trust wget
+sudo cp localhost.crt /usr/share/ca-certificates/trust-source/anchors/aspnetcore-https-localhost.pem
+sudo update-ca-trust extract
+
+# Trust dotnet-to-dotnet
+sudo cp localhost.crt /etc/ssl/certs/aspnetcore-https-localhost.pem
+
+# Remove cert from current directory
+rm localhost.crt
