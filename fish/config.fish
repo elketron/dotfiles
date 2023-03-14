@@ -25,6 +25,8 @@ alias mkd="mkdir (date +"%Y_%m_%d")"
 alias ocd="kitty (pwd)& echo ''"
 alias asp-gen="dotnet-aspnet-codegenerator"
 alias ghc='gh repo clone (gh repo list | fzf | grep -oP "^[^.\t]*")'
+alias ghr="gh repo create --source=. --remote=origin --source=. --add-readme --push --public"
+alias ghrp="gh repo create --source=. --remote=origin --source=. --add-readme --push --private"
 
 alias v="nvim"
 alias upd="paru -Syu --sudoloop"

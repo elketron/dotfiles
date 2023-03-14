@@ -25,15 +25,16 @@ lsp.html.setup {
 lsp.tsserver.setup { capabilities = capabilities }
 lsp.angularls.setup { capabilities = capabilities }
 lsp.cssls.setup { capabilities = capabilities }
---lsp.csharp_ls.setup { capabilities = capabilities }
-omnisharp_dll = vim.fn.expand("$HOME/omnisharp/OmniSharp.dll")
-lsp.omnisharp.setup {
-  capabilities =capabilities,
-  cmd = { "dotnet", omnisharp_dll },
-  enable_roslyn_analyzers = true,
-  enable_import_completion = true,
-  organize_imports_on_format = true,
-}
+lsp.csharp_ls.setup { capabilities = capabilities }
+--omnisharp_dll = vim.fn.expand("$HOME/omnisharp/OmniSharp.dll")
+--lsp.omnisharp.setup {
+--  capabilities = capabilities,
+--  cmd = { "omnisharp" },
+--  filetypes = { "cs", "vb", "razor" },
+--  enable_roslyn_analyzers = true,
+--  enable_import_completion = true,
+--  organize_imports_on_format = true,
+--}
 lsp.arduino_language_server.setup({
   cmd = {
     "arduino-language-server",
