@@ -1,8 +1,8 @@
-set -U EDITOR /usr/bin/nvim
-set -U GUI_EDITOR /usr/bin/nvim
+set -U EDITOR nvim
+set -U GUI_EDITOR nvim
 set -U BROWSER /usr/bin/qutebrowser
 set -U TERMINAL /usr/bin/kitty
-set -U VISUAL /usr/bin/nvim
+set -U VISUAL nvim
 set -U XDG_CONFIG_HOME /home/odmar/.config
 set -U fish_greeting
 set -U MSBuildSDKsPath /usr/share/dotnet/sdk/(dotnet --version)/Sdks
@@ -22,8 +22,9 @@ alias gitu="git add . && git commit && git push"
 alias se="sudoedit"
 alias ls="ls -A --color=always"
 alias mkd="mkdir (date +"%Y_%m_%d")"
-alias ocd="kitty (pwd)"
+alias ocd="kitty (pwd)& echo ''"
 alias asp-gen="dotnet-aspnet-codegenerator"
+alias ghc='gh repo clone (gh repo list | fzf | grep -oP "^[^.\t]*")'
 
 alias v="nvim"
 alias upd="paru -Syu --sudoloop"
@@ -34,7 +35,7 @@ alias ydlm="yt-dlp -x --audio-format 'mp3'"
 alias ydlv="yt-dlp -f 'betvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
 
 function gic --description "clone a repo arg is name of owner" 
-    gh repo clone (gh repo list $argv | grep -Po "([a-zA-Z\.\d_-]+/[a-zA-Z\.\d_-]+)" | fzf)
+    gh repo clone (gh repo list $argv | grep -Po "^[^.\t]*" | fzf)
 end
 
 function cdd --description "go to dir an show it"
