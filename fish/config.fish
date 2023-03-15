@@ -18,15 +18,17 @@ alias cp="cp -uv"
 alias cf="cp -ruv"
 alias df="df -h"
 alias free="free -m"
-alias gitu="git add . && git commit && git push"
 alias se="sudoedit"
 alias ls="ls -A --color=always"
 alias mkd="mkdir (date +"%Y_%m_%d")"
 alias ocd="kitty (pwd)& echo ''"
 alias asp-gen="dotnet-aspnet-codegenerator"
+
+alias gitu="git add . && git commit && git push"
 alias ghc='gh repo clone (gh repo list | fzf | grep -oP "^[^.\t]*")'
 alias ghr="gh repo create --source=. --remote=origin --source=. --add-readme --push --public"
 alias ghrp="gh repo create --source=. --remote=origin --source=. --add-readme --push --private"
+alias gitc="git checkout (git for-each-ref --format='%(refname:short)' refs/heads/ | fzf)"
 
 alias v="nvim"
 alias upd="paru -Syu --sudoloop"
