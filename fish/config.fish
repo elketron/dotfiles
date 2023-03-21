@@ -22,7 +22,9 @@ alias se="sudoedit"
 alias ls="ls -A --color=always"
 alias mkd="mkdir (date +"%Y_%m_%d")"
 alias ocd="kitty (pwd)& echo ''"
+
 alias asp-gen="dotnet-aspnet-codegenerator"
+alias dr="dotnet run --runtime linux-x64"
 
 alias gitu="git add . && git commit && git push"
 alias ghc='gh repo clone (gh repo list | fzf | grep -oP "^[^.\t]*")'
