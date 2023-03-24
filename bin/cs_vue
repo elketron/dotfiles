@@ -1,0 +1,57 @@
+#!/bin/bash
+
+name=$1
+
+dotnet new sln -o $name
+cd $name
+
+dotnet new react -o Frontend
+cd Frontend
+
+rm -rf ClientApp
+yarn create vite ClientApp --template vue-ts
+cd ClientApp
+
+yarn
+
+cd ..
+
+# get port
+port=$(grep "SpaProxyServerUrl" Frontend.csproj | grep -oP "\d+")
+
+# change launch command
+sed -Ei 's/<SpaProxyLaunchCommand>.+<\/SpaProxyLaunchCommand>/<SpaProxyLaunchCommand>yarn dev<\/SpaProxyLaunchCommand>/g' Frontend.csproj
+
+cd ClientApp
+yarn add vite-plugin-mkcert -D
+
+vite_config_file="
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import mkcert from 'vite-plugin-mkcert'
+
+export default defineConfig({
+  plugins: [vue(), mkcert()],
+  server: {
+    port: $port,
+    https: true,
+    strictPort : true,
+    proxy: {
+      '/api' : {
+        target: 'https://localhost:7153',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '/api')
+      }
+    } 
+  }
+})
+"
+
+echo "$vite_config_file" > vite.config.ts
+
+cd ../..
+
+dotnet sln add Frontend
+
+dotnet new gitignore
