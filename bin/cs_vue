@@ -8,21 +8,17 @@ cd $name
 dotnet new react -o Frontend
 cd Frontend
 
-rm -rf ClientApp
-yarn create vite ClientApp --template vue-ts
-cd ClientApp
-
-yarn
-
-cd ..
-
 # get port
 port=$(grep "SpaProxyServerUrl" Frontend.csproj | grep -oP "\d+")
 
 # change launch command
 sed -Ei 's/<SpaProxyLaunchCommand>.+<\/SpaProxyLaunchCommand>/<SpaProxyLaunchCommand>yarn dev<\/SpaProxyLaunchCommand>/g' Frontend.csproj
 
+rm -rf ClientApp
+yarn create vite ClientApp --template vue-ts
 cd ClientApp
+
+yarn
 yarn add vite-plugin-mkcert -D
 
 vite_config_file="
@@ -49,6 +45,28 @@ export default defineConfig({
 "
 
 echo "$vite_config_file" > vite.config.ts
+
+
+# tailwindcss
+yarn add -D tailwindcss postcss autoprefixer
+yarn tailwindcss init -p
+
+tailwind_config="
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+"
+
+echo "$tailwind_config" > tailwind.config.cjs
+sed -i "1i@tailwind base;\n@tailwind components;\n@tailwind utilities;" src/style.css
 
 cd ../..
 
