@@ -37,6 +37,9 @@ cd ClientApp
 
 yarn
 yarn add vite-plugin-mkcert -D
+yarn add axios
+yarn add uuid
+yarn add @types/uuid
 
 vite_config_file="
 import { defineConfig } from 'vite'
