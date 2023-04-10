@@ -8,6 +8,23 @@ cd $name
 dotnet new react -o Frontend
 cd Frontend
 
+# add ConnectionStrings
+appsettings='
+{
+  "Logging": {
+      "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+      }
+    },
+  "ConnectionStrings": {
+    "SqlServer": "Server=localhost,1433;Database=TodoList;User Id=sa; Password=MyVeryStrong<Password(!)>;encrypt=false"
+  },
+"AllowedHosts": "*"
+}'
+echo "$appsettings" > appsettings.json
+
 # get port
 port=$(grep "SpaProxyServerUrl" Frontend.csproj | grep -oP "\d+")
 
@@ -72,4 +89,49 @@ cd ../..
 
 dotnet sln add Frontend
 
+# Data and Models
+data_dir=$name"Data"
+
+dotnet new classlib -n $data_dir
+cd $data_dir
+
+rm Class1.cs
+mkdir Models Repositories
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+cd ../
+
+dotnet sln add $data_dir
+dotnet add Frontend/Frontend.csproj reference $data_dir/$data_dir.csproj
+
+# Services
+services_dir=$name"Services"
+
+dotnet new classlib -n $services_dir
+
+dotnet sln add $services_dir
+dotnet add $services_dir/$services_dir.csproj reference $data_dir/$data_dir.csproj
+dotnet add Frontend/Frontend.csproj reference $services_dir/$services_dir.csproj
+
+# docker compose file
+docker_compose_file='
+version: "3.2"
+services:
+  sql-server-db:
+    container_name: sql-server-db
+    image: mcr.microsoft.com/mssql/server:latest
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "MyVeryStrong<Password(!)>"
+      ACCEPT_EULA: "Y"
+'
+echo "$docker_compose_file" > docker-compose.yml
+
+
 dotnet new gitignore
+git init
+
+echo "Dir name: " $name
