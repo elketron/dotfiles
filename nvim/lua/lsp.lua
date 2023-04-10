@@ -18,6 +18,7 @@ lsp.clangd.setup {
 lsp.html.setup {
   capabilities = capabilities,
 }
+
 lsp.tsserver.setup { capabilities = capabilities }
 lsp.angularls.setup { capabilities = capabilities }
 lsp.tailwindcss.setup { capabilities = capabilities }
@@ -35,15 +36,29 @@ lsp.sqlls.setup { capabilities = capabilities }
 lsp.volar.setup { capabilities = capabilities }
 lsp.bashls.setup { capabilities = capabilities }
 lsp.rust_analyzer.setup { capabilities = capabilities }
-lsp.sumneko_lua.setup({
+lsp.lua_ls.setup {
+  capabilities = capabilities,
   settings = {
     Lua = {
-      completion = {
-        callSnippet = "Replace"
-      }
-    }
-  }
-})
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
 
 function PrintDiagnostics(opts, bufnr, line_nr, client_id)
   opts = opts or {}
