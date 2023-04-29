@@ -1,12 +1,32 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+
 require('general')
+require("lazy").setup("plugins", {
+  install = {
+    missing = true,
+  },
+})
 require('theme')
 require('mappings')
-require('plugins')
 require('augroups')
-require('telescope')
+require('_telescope')
 require('_cmp')
 require("_luasnip")
 require('lsp')
---require('compe')
 require('treesitter')
+require("_lspsaga")
 --require('snips')
+
+vim.cmd(":color srcery")

@@ -60,6 +60,15 @@ lsp.lua_ls.setup {
   },
 }
 
+require'lsp-lens'.setup({
+  include_declaration = true,
+  sections = {
+    definitions = true,
+    references = true,
+    implementation = true,
+  }
+})
+
 function PrintDiagnostics(opts, bufnr, line_nr, client_id)
   opts = opts or {}
 

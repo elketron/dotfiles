@@ -5,9 +5,11 @@ vim.keymap.set('n', '<leader>Y', '"*y')
 vim.keymap.set('n', '<leader>P', '"*p')
 vim.keymap.set('n', '<leader>y', '"+y')
 vim.keymap.set('n', '<leader>p', '"+p')
-vim.keymap.set('n', '<leader>bn', ':bNext<cr>')
-vim.keymap.set('n', '<leader>bp', ':bprevious<cr>')
+vim.keymap.set('n', '<leader>n', ':bNext<cr>')
+vim.keymap.set('n', '<leader>p', ':bprevious<cr>')
 vim.keymap.set('n', '<leader>tt', ':term<cr>')
+vim.keymap.set('n', '<leader>en', ":lua vim.diagnostic.goto_next()<cr>")
+vim.keymap.set('n', '<leader>ep', ":lua vim.diagnostic.goto_prev()<cr>")
 
 vim.keymap.set('n', '<leader>eq', ':lua require("nabla").action()<cr>')
 vim.keymap.set('n', '<leader>re', ':lua vim.lsp.buf.rename()<cr>')
@@ -29,5 +31,3 @@ vim.keymap.set('i', 'jj', '<Esc>')
 
 -- terminal mode mappings
 vim.keymap.set('t', '<Esc>', "<C-\\><C-n>")
-
-

@@ -33,6 +33,7 @@ alias ghrp="gh repo create --source=. --remote=origin --source=. --add-readme --
 alias gitc="git checkout (git for-each-ref --format='%(refname:short)' refs/heads/ | fzf)"
 
 alias v="nvim"
+alias gv="nvim --listen ~/.cache/nvim/godot.pipe"
 alias upd="paru -Syu --sudoloop"
 alias q="exit"
 alias pyi="pip install --user"
@@ -79,6 +80,7 @@ end
 # start sway at login
 if status is-login
     #if test -z "$DISPLAY" -a "$XDG_VNTR" = 1
+    sh ~/.config/fish/startup.sh
     exec sway
     #end
 end
