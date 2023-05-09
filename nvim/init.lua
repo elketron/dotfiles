@@ -18,7 +18,6 @@ require("lazy").setup("plugins", {
     missing = true,
   },
 })
-require('theme')
 require('mappings')
 require('augroups')
 require('_telescope')
@@ -28,5 +27,5 @@ require('lsp')
 require('treesitter')
 require("_lspsaga")
 --require('snips')
-
 vim.cmd(":color srcery")
+-- require('theme')

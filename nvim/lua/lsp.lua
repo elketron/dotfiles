@@ -18,6 +18,7 @@ lsp.clangd.setup {
 lsp.html.setup {
   capabilities = capabilities,
 }
+lsp.zls.setup{ capabilities = capabilities }
 
 lsp.tsserver.setup { capabilities = capabilities }
 lsp.angularls.setup { capabilities = capabilities }

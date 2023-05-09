@@ -80,4 +80,7 @@ return {
 	--personal plugins
 	'elketron/elk-funcs',
 	'elketron/elk-manager',
+
+	--git
+  { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' }
 }
