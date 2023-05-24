@@ -18,13 +18,21 @@ lsp.clangd.setup {
 lsp.html.setup {
   capabilities = capabilities,
 }
-lsp.zls.setup{ capabilities = capabilities }
+lsp.zls.setup { capabilities = capabilities }
 
 lsp.tsserver.setup { capabilities = capabilities }
 lsp.angularls.setup { capabilities = capabilities }
 lsp.tailwindcss.setup { capabilities = capabilities }
 lsp.cssls.setup { capabilities = capabilities }
-lsp.csharp_ls.setup { capabilities = capabilities }
+lsp.csharp_ls.setup {
+  capabilities = capabilities,
+  root_dir = function(startpath)
+    return lsp.util.root_pattern("*.sln")(startpath)
+        or lsp.util.root_pattern("*.csproj")(startpath)
+        or lsp.util.root_pattern("*.fsproj")(startpath)
+        or lsp.util.root_pattern(".git")(startpath)
+  end,
+}
 lsp.arduino_language_server.setup({
   cmd = {
     "arduino-language-server",
@@ -61,7 +69,7 @@ lsp.lua_ls.setup {
   },
 }
 
-require'lsp-lens'.setup({
+require 'lsp-lens'.setup({
   include_declaration = true,
   sections = {
     definitions = true,
