@@ -150,5 +150,19 @@ return {
       i(0) }, { delimiters = "<>"
     }),
     {}),
+  s("act", fmt([[
+    [<>]
+    public ActionResult <> (<>)
+    {
+      <>
+    }
+  ]], { c(1, {
+    t("HttpGet"),
+    t("HttpPost"),
+    t("HttpDelete"),
+    t("HttpPut"),
+    t("HttpPatch")
+  }), i(2, "Action"), i(3), i(0)
+  }, { delimiters = "<>" }))
 
 }
