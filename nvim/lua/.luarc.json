@@ -102,6 +102,8 @@
         "/usr/share/vim/vimfiles",
         "/home/odmar/dotfiles/nvim/lua",
         "${3rd}/luv/library",
-        "${3rd}/luassert/library"
+        "${3rd}/luassert/library",
+        "/tmp/lua-language-server.NA15/meta/10abfcfe",
+        "/tmp/lua-language-server.Tuti/meta/10abfcfe"
     ]
 }
