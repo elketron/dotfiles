@@ -19,7 +19,6 @@ return {
 	'smithbm2316/centerpad.nvim',
 	'nvim-treesitter/playground',
 	-- snippets
-	'sirver/ultisnips',
 	-- 'L3MON4D3/LuaSnip'
 	-- syntax
 	'scrooloose/syntastic',
@@ -82,5 +81,8 @@ return {
 	'elketron/elk-manager',
 
 	--git
-  { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' }
+  { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
+
+	--copilot
+	"github/copilot.vim"
 }

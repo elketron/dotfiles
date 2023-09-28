@@ -1,17 +1,21 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR BROWSER:/usr/bin/qutebrowser
-SETUVAR EDITOR:nvim
-SETUVAR GUI_EDITOR:nvim
-SETUVAR MSBuildSDKsPath:/usr/share/dotnet/sdk/7\x2e0\x2e103/Sdks
+SETUVAR AndroidSdkDirectory:/home/odmar/Android/Sdk/
+SETUVAR --export BROWSER:/usr/bin/qutebrowser
+SETUVAR --export EDITOR:nvim
+SETUVAR --export GUI_EDITOR:nvim
+SETUVAR JAVA_HOME:/usr/lib/jvm/java\x2d11\x2dopenjdk/
+SETUVAR JavaSdkDirectory:/usr/lib/jvm/java\x2d11\x2dopenjdk/
+SETUVAR --export MSBuildSDKsPath:/usr/share/dotnet/sdk/7\x2e0\x2e111/Sdks
+SETUVAR PROJECT_DIR:/home/odmar
 SETUVAR QT_QPA_PLATFORM:wayland
-SETUVAR QT_WAYLAND_DISABLE_WINDOWDECORATION:1
-SETUVAR SDL_VIDEODRIVER:x11
-SETUVAR TERMINAL:/usr/bin/kitty
-SETUVAR VISUAL:nvim
-SETUVAR XDG_CONFIG_HOME:/home/odmar/\x2econfig
-SETUVAR XDG_CURRENT_DESKTOP:sway
-SETUVAR XDG_SESSION_TYPE:wayland
+SETUVAR --export QT_WAYLAND_DISABLE_WINDOWDECORATION:1
+SETUVAR --export SDL_VIDEODRIVER:x11
+SETUVAR --export TERMINAL:/usr/bin/kitty
+SETUVAR --export VISUAL:nvim
+SETUVAR --export XDG_CONFIG_HOME:/home/odmar/\x2econfig
+SETUVAR --export XDG_CURRENT_DESKTOP:sway
+SETUVAR --export XDG_SESSION_TYPE:wayland
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
@@ -35,7 +39,7 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_greeting:\x1d
+SETUVAR --export fish_greeting:\x1d
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow

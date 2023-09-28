@@ -1,17 +1,17 @@
-set -U EDITOR nvim
-set -U GUI_EDITOR nvim
-set -U BROWSER /usr/bin/qutebrowser
-set -U TERMINAL /usr/bin/kitty
-set -U VISUAL nvim
-set -U XDG_CONFIG_HOME /home/odmar/.config
-set -U fish_greeting
-set -U MSBuildSDKsPath /usr/share/dotnet/sdk/(dotnet --version)/Sdks
+set -Ux EDITOR nvim
+set -Ux GUI_EDITOR nvim
+set -Ux BROWSER /usr/bin/qutebrowser
+set -Ux TERMINAL /usr/bin/kitty
+set -Ux VISUAL nvim
+set -Ux XDG_CONFIG_HOME /home/odmar/.config
+set -Ux fish_greeting
+set -Ux MSBuildSDKsPath /usr/share/dotnet/sdk/(dotnet --version)/Sdks
 
 # wayland settings
-set -U QT_WAYLAND_DISABLE_WINDOWDECORATION 1
-set -U XDG_CURRENT_DESKTOP sway
-set -U XDG_SESSION_TYPE wayland
-set -U SDL_VIDEODRIVER x11
+set -Ux QT_WAYLAND_DISABLE_WINDOWDECORATION 1
+set -Ux XDG_CURRENT_DESKTOP sway
+set -Ux XDG_SESSION_TYPE wayland
+set -Ux SDL_VIDEODRIVER x11
 
 # aliases
 alias cp="cp -uv"
@@ -22,6 +22,10 @@ alias se="sudoedit"
 alias ls="ls -A --color=always"
 alias mkd="mkdir (date +"%Y_%m_%d")"
 alias ocd="kitty (pwd)& echo ''"
+alias ya="yarn global add"
+
+# pcli aliases
+alias po="pcli project open (pcli project list | fzf)"
 
 alias asp-gen="dotnet-aspnet-codegenerator"
 alias dr="dotnet run --runtime linux-x64"
@@ -53,6 +57,22 @@ function mk --description "make a dir an go to it"
     mkdir $argv && cd $argv
 end
 
+function rd --description "remove file or dir"
+    if test -d $argv
+        rm -rf $argv
+    else 
+        rm $argv
+    end 
+end
+
+function rdi --description "remove file or dir interactively"
+    if test -d $argv
+        rm -rfi $argv
+    else 
+        rm -i $argv
+    end
+end
+
 function ydlp --description "download a playlist"
     yt-dlp $argv -o 'Videos/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'
 end
@@ -72,6 +92,8 @@ function fish_right_prompt
     echo -n (fish_git_prompt)
     set_color normal
 end
+
+complete -f -c dotnet -a "(dotnet complete (commandline -cp))"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here

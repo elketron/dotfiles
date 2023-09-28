@@ -33,7 +33,7 @@ keymap("n","gd", "<cmd>Lspsaga goto_definition<CR>")
 keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>")
 
 -- Go to type definition
-keymap("n","gt", "<cmd>Lspsaga goto_type_definition<CR>")
+keymap("n","gv", "<cmd>Lspsaga goto_type_definition<CR>")
 
 
 -- Show line diagnostics

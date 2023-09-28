@@ -41,6 +41,9 @@ yarn add axios
 yarn add uuid
 yarn add @types/uuid
 
+# get target port 
+target=$(grep -oP "https:\/\/localhost:(\d+)" Properties/launchSettings.json)
+
 vite_config_file="
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -54,10 +57,16 @@ export default defineConfig({
     strictPort : true,
     proxy: {
       '/api' : {
-        target: 'https://localhost:7153',
+        target: '$target',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, '/api')
+      },
+      '/swagger' : {
+        target: '$target',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/swagger/, '/swagger')
       }
     } 
   }

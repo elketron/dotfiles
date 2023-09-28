@@ -31,3 +31,7 @@ vim.keymap.set('i', 'jj', '<Esc>')
 
 -- terminal mode mappings
 vim.keymap.set('t', '<Esc>', "<C-\\><C-n>")
+
+-- copilot
+vim.keymap.set('n', '<leader>pa', ':Copilot panel<cr>')
+vim.keymap.set('v', '<leader>pa', ':Copilot panel<cr>')

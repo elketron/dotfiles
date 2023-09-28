@@ -106,7 +106,7 @@ end
 return {
   s("cw", fmt([[Console.WriteLine(<>)<>]], { i(1), i(0) }, { delimiters = "<>" })),
   s("class", fmt([[
-        class <> <>
+        public class <> <>
         {
           <>
         }
@@ -120,7 +120,7 @@ return {
     }),
     {}),
   s("interface", fmt([[
-      interface <>
+      public interface <>
       {
         <>
       }
@@ -136,11 +136,11 @@ return {
     end)
   }),
   s("con", fmt([[
-      using Microsoft.AspNetCore.MVC;
+      using Microsoft.AspNetCore.Mvc;
 
       [Route("<>")]
       [ApiController]
-      class <> : ControllerBase
+      public class <> : ControllerBase
       {
         <>
       }
