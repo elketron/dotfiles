@@ -84,5 +84,8 @@ return {
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
 
 	--copilot
-	"github/copilot.vim"
+	"github/copilot.vim",
+
+	-- extra
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
 }

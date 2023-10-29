@@ -14,6 +14,7 @@
   "diffview.nvim": { "branch": "main", "commit": "a111d19ccceac6530448d329c63f998f77b5626e" },
   "elk-funcs": { "branch": "master", "commit": "88356e05f00640c026b1a80b18f3db8a7e84198e" },
   "elk-manager": { "branch": "master", "commit": "be1076ff88b24e4a882b415b7952df2efb7dd8ab" },
+  "indent-blankline.nvim": { "branch": "master", "commit": "046e2cf04e08ece927bacbfb87c5b35c0b636546" },
   "indentline": { "branch": "master", "commit": "b96a75985736da969ac38b72a7716a8c57bdde98" },
   "lazy.nvim": { "branch": "main", "commit": "2a9354c7d2368d78cbd5575a51a2af5bd8a6ad01" },
   "lsp-lens.nvim": { "branch": "main", "commit": "296e0d33dddba1a1de9b69143f189cb994111c5a" },
