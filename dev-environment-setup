@@ -1,0 +1,45 @@
+#! /bin/python3
+
+import subprocess
+
+file = open("packages", "r")
+
+# dict key = package manager, value = packages
+packages: dict[str, list[str]] = {}
+
+# if line starts with # change package manager
+# if line has no #, add to list of packages
+package_manager = ""
+for line in file:
+    if line.startswith("#"):
+        package_manager = line[1:].strip()
+        packages[package_manager] = []
+    else:
+        packages[package_manager].append(line.strip())
+
+def pacman_install(packages: list[str]):
+    subprocess.run(["sudo", "pacman", "-S", "--noconfirm"] + packages)
+
+def yay_install(packages: list[str]):
+    subprocess.run(["yay", "-S", "--noconfirm"] + packages)
+
+def yarn_install(packages: list[str]):
+    subprocess.run(["yarn", "global", "add"] + packages)
+
+def dotnet_install(packages: list[str]):
+    subprocess.run(["dotnet", "tool", "install"] + packages)
+
+def install_packages(package_manager: str, packages: list[str]):
+    if package_manager == "pacman":
+        pacman_install(packages)
+    elif package_manager == "yay":
+        yay_install(packages)
+    elif package_manager == "yarn":
+        yarn_install(packages)
+    elif package_manager == "dotnet":
+        dotnet_install(packages)
+
+for package_manager in packages:
+    install_packages(package_manager, packages[package_manager])
+
+file.close()

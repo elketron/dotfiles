@@ -1,0 +1,30 @@
+# yay
+dotnet-runtime
+dotnet-sdk
+neovim
+code
+kitty
+yarn
+npm
+tree-sitter
+ripgrep
+fd
+azure-cli
+git
+python-pynvim
+# yarn
+@angular/cli
+@angular/language-server
+bash-language-server
+vscode-langservers-extracted
+@tailwindcss/language-server
+typescript 
+typescript-language-server
+@vue/language-server
+neovim
+# dotnet
+csharp-ls
+dotnet-aspnet-codegenerator
+dotnet-ef
+degenerator
+upgrade-assistant
