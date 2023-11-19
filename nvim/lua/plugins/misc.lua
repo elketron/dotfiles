@@ -88,5 +88,9 @@ return {
 	"github/copilot.vim",
 
 	-- extra
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",                          opts = {} }
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",                          opts = {} },
+
+	--development
+	{ dir="elketron/ng-tools",dev = true, config=true }
+ 
 }

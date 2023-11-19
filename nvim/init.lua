@@ -17,6 +17,10 @@ require("lazy").setup("plugins", {
   install = {
     missing = true,
   },
+  dev = {
+    path = "~/Projects/nvim-plugins/",
+    fallback = false,
+  }
 })
 require('mappings')
 require('augroups')
