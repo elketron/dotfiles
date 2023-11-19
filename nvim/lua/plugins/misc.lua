@@ -57,6 +57,7 @@ return {
 			{ "nvim-treesitter/nvim-treesitter" }
 		}
 	},
+	{ 'joeveiga/ng.nvim' },
 
 	-- 'tjdevries/nlua.nvim'
 	"folke/neodev.nvim",
@@ -81,11 +82,11 @@ return {
 	'elketron/elk-manager',
 
 	--git
-  { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
+	{ 'sindrets/diffview.nvim',              dependencies = 'nvim-lua/plenary.nvim' },
 
 	--copilot
 	"github/copilot.vim",
 
 	-- extra
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",                          opts = {} }
 }

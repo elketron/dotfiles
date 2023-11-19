@@ -26,6 +26,8 @@ require("_luasnip")
 require('lsp')
 require('treesitter')
 require("_lspsaga")
+require("angular")
 --require('snips')
 vim.cmd(":color srcery")
+
 -- require('theme')
