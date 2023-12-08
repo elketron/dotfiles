@@ -10,7 +10,7 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp-rg": { "branch": "master", "commit": "677a7874ee8f1afc648c2e7d63a97bc21a7663c5" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
-  "copilot.vim": { "branch": "release", "commit": "309b3c803d1862d5e84c7c9c5749ae04010123b8" },
+  "codeium.vim": { "branch": "main", "commit": "2a0c0b7fecee38a52fe750563ff70cff45f768b0" },
   "diffview.nvim": { "branch": "main", "commit": "d38c1b5266850f77f75e006bcc26213684e1e141" },
   "elk-funcs": { "branch": "master", "commit": "88356e05f00640c026b1a80b18f3db8a7e84198e" },
   "elk-manager": { "branch": "master", "commit": "be1076ff88b24e4a882b415b7952df2efb7dd8ab" },

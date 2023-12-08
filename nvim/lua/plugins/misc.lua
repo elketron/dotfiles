@@ -1,3 +1,13 @@
+local function inWorkDirectory()
+	local cwd = vim.fn.getcwd()
+	if string.find(cwd, 'Werk') ~= nil then
+		return true
+	else
+		return false
+	end
+end
+
+
 return {
 	--packer
 	'wbthomason/packer.nvim',
@@ -85,12 +95,21 @@ return {
 	{ 'sindrets/diffview.nvim',              dependencies = 'nvim-lua/plenary.nvim' },
 
 	--copilot
-	"github/copilot.vim",
+	{
+		"github/copilot.vim",
+		enabled = inWorkDirectory() == false,
+	},
+	--codeium
+	{
+		'Exafunction/codeium.vim',
+		event = 'BufEnter',
+		enabled = inWorkDirectory() == true,
+	},
 
 	-- extra
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",                          opts = {} },
 
 	--development
-	{ dir="elketron/ng-tools",dev = true, config=true }
- 
+	{ dir = "elketron/ng-tools",             dev = true,                            config = true }
+
 }
