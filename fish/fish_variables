@@ -2,6 +2,7 @@
 # VERSION: 3.0
 SETUVAR AndroidSdkDirectory:/home/odmar/Android/Sdk/
 SETUVAR --export BROWSER:/usr/bin/qutebrowser
+SETUVAR DOTNET_ROOT:/usr/share/dotnet/
 SETUVAR --export EDITOR:nvim
 SETUVAR --export GUI_EDITOR:nvim
 SETUVAR JAVA_HOME:/usr/lib/jvm/java\x2d11\x2dopenjdk/
