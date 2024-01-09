@@ -116,6 +116,6 @@ return {
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",                          opts = {} },
 
 	--development
-	{ dir = "elketron/ng-tools",             dev = true,                            config = true }
+	--{ dir = "elketron/ng-tools",             dev = true,                            config = true }
 
 }

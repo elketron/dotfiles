@@ -22,7 +22,7 @@ lsp.zls.setup { capabilities = capabilities }
 
 lsp.tsserver.setup { capabilities = capabilities }
 local project_lib_path = vim.fn.expand("./node_modules/")
-local global_lib_path = vim.fn.expand("~/.config/yarn/global/node_modules")
+local global_lib_path = vim.fn.expand("~/.bun/install/global/node_modules")
 local cmd = { "ngserver", "--stdio", "--tsProbeLocations", global_lib_path, project_lib_path, "--ngProbeLocations",
   global_lib_path, project_lib_path,
   "--includeCompletionsWithSnippetText" }
