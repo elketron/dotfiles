@@ -1,18 +1,18 @@
-set -Ux EDITOR nvim
-set -Ux GUI_EDITOR nvim
-set -Ux BROWSER /usr/bin/qutebrowser
-set -Ux TERMINAL /usr/bin/kitty
-set -Ux VISUAL nvim
-set -Ux XDG_CONFIG_HOME /home/odmar/.config
-set -Ux fish_greeting
-set -Ux MSBuildSDKsPath /usr/share/dotnet/sdk/(dotnet --version)/Sdks
-
-# wayland settings
-set -Ux QT_WAYLAND_DISABLE_WINDOWDECORATION 1
-set -Ux XDG_CURRENT_DESKTOP sway
-set -Ux XDG_SESSION_TYPE wayland
-set -Ux SDL_VIDEODRIVER x11
-
+#set -Ux EDITOR nvim
+#set -Ux GUI_EDITOR nvim
+#set -Ux BROWSER /usr/bin/qutebrowser
+#set -Ux TERMINAL /usr/bin/kitty
+#set -Ux VISUAL nvim
+#set -Ux XDG_CONFIG_HOME /home/odmar/.config
+#set -Ux fish_greeting
+#set -Ux MSBuildSDKsPath /usr/share/dotnet/sdk/(dotnet --version)/Sdks
+#
+## wayland settings
+#set -Ux QT_WAYLAND_DISABLE_WINDOWDECORATION 1
+#set -Ux XDG_CURRENT_DESKTOP sway
+#set -Ux XDG_SESSION_TYPE wayland
+#set -Ux SDL_VIDEODRIVER x11
+#
 # aliases
 alias cp="cp -uv"
 alias cf="cp -ruv"
@@ -47,6 +47,10 @@ alias ydlv="yt-dlp -f 'betvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
 
 function gic --description "clone a repo arg is name of owner" 
     gh repo clone (gh repo list $argv | grep -Po "^[^.\t]*" | fzf)
+end
+
+function vrg --description "open files in nvim that matches a pattern" 
+    nvim (rg --files-with-matches $argv)
 end
 
 function cdd --description "go to dir an show it"
