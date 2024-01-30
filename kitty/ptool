@@ -1,5 +1,5 @@
 layout stack
-launch --hold --cwd~/Projects/Werk/Planning-Tool/Frontend/ nvim src/main.ts
+launch --hold --cwd ~/Projects/Werk/Planning-Tool/Frontend/ nvim src/main.ts
 launch --hold --cwd ~/Projects/Werk/Planning-Tool/Backend/src/ nvim PlanningTool.Api/Program.cs
 
 new_os_window
