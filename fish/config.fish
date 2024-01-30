@@ -5,7 +5,7 @@
 #set -Ux VISUAL nvim
 #set -Ux XDG_CONFIG_HOME /home/odmar/.config
 #set -Ux fish_greeting
-#set -Ux MSBuildSDKsPath /usr/share/dotnet/sdk/(dotnet --version)/Sdks
+set -Ux MSBuildSDKsPath /usr/share/dotnet/sdk/(dotnet --version)/Sdks
 #
 ## wayland settings
 #set -Ux QT_WAYLAND_DISABLE_WINDOWDECORATION 1
