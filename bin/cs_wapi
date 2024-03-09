@@ -1,0 +1,76 @@
+#!/bin/bash
+#
+# This script is used to install the required packages for the project
+# this script generate the necessary files for a dotnet webapi project
+
+#### inputs
+project_name=$1
+
+#### check if the project name is provided
+# if not provided, exit the script
+if [ -z "$project_name" ]; then
+    echo "Please provide the project name"
+    exit 1
+fi
+
+#### check if the project name is already exists
+# if exists, exit the script
+if [ -d "$project_name" ]; then
+    echo "The project name already exists"
+    exit 1
+fi
+
+#### create the project directory
+mkdir $project_name
+cd $project_name
+
+git init
+
+#### create Frontend and Backend directories
+mkdir Frontend Backend
+
+cd Backend
+
+#### create the dotnet webapi project
+mkdir src
+cd src
+
+dotnet new sln -n $project_name
+dotnet new webapi -n $project_name.Api
+
+dotnet sln add $project_name.Api
+
+cd $project_name.Api
+
+#### install the mariadb and ef core packages
+dotnet add package Pomelo.EntityFrameworkCore.MySql
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+cd ../
+
+dotnet new classlib -n $project_name.Data
+dotnet sln add $project_name.Data
+cd $project_name.Data
+
+#### install the mariadb and ef core packages
+dotnet add package Pomelo.EntityFrameworkCore.MySql
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+cd ../
+
+dotnet new classlib -n $project_name.Domain
+dotnet sln add $project_name.Domain
+cd $project_name.Domain
+
+#### install the ef core package
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+cd ../
+
+dotnet new classlib -n $project_name.Service
+dotnet sln add $project_name.Service
+
+
+
