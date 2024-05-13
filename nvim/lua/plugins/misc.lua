@@ -114,6 +114,16 @@ return {
 	-- extra
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",                          opts = {} },
 
+	{
+    'akinsho/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    config = true,
+}
+
 	--development
 	--{ dir = "elketron/ng-tools",             dev = true,                            config = true }
 

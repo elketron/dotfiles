@@ -80,6 +80,7 @@ lsp.lua_ls.setup {
     },
   },
 }
+lsp.elixirls.setup {}
 
 require 'lsp-lens'.setup({
   include_declaration = true,
@@ -91,6 +92,7 @@ require 'lsp-lens'.setup({
 })
 
 function PrintDiagnostics(opts, bufnr, line_nr, client_id)
+
   opts = opts or {}
 
   bufnr = bufnr or 0
