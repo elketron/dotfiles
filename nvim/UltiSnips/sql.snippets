@@ -1,0 +1,327 @@
+# Data Types
+snippet char "char"
+CHAR(${1:size 0-255})
+endsnippet
+
+snippet vchar "varchar"
+VARCHAR(${1:size 0-65535})
+endsnippet
+
+snippet bin "binary"
+BINARY(${1:1})
+endsnippet	
+
+snippet vbin "varbinary"
+VARBINARY(${1:size})
+endsnippet
+
+snippet tblb "tinyblob"
+TINYBLOB
+endsnippet
+	
+snippet blb "blob"
+BLOB(${1:size})
+endsnippet 
+
+snippet mblb "medium blob"
+MEDIUMBLOB
+endsnippet
+
+snippet lblb "long blob"
+LONGBLOB
+endsnippet
+
+snippet ttxt "tinytext"
+TINYTEXT
+endsnippet 
+
+snippet txt "text"
+TEXT(${1:size})
+endsnippet
+
+snippet mtxt "midium text"
+MEDIUMTEXT
+endsnippet
+
+snippet ltxt "long text"
+LONGTEXT
+endsnippet
+
+snippet enum "enum"
+ENUM(${1:val})
+endsnippet
+
+snippet set "set"
+SET(${1:val})
+endsnippet	
+
+snippet bit "bit"
+BIT(${1:size 1-64})
+endsnippet
+
+snippet bool "bool"
+BOOL
+endsnippet
+
+snippet sint "small int"
+SMALLINT(${1:255})
+endsnippet
+
+snippet mint "medium int"
+MEDIUMINT(${1:255})
+endsnippet
+
+snippet int "int"
+INT(${1:255})
+endsnippet
+
+snippet bint "big int"
+BIGINT(${1:255})
+endsnippet
+
+snippet flt "float"
+FLOAT(${1:24})
+endsnippet
+
+snippet dbl "bouble"
+DOUBLE(${1:size},(${2:d}))
+endsnippet
+
+snippet dblp "double precision"
+DOUBLE PRECISION(${1:size},(${1:d}))
+endsnippet
+
+snippet dec "decimal"
+DECIMAL(${1:size},(${2:d}))
+endsnippet
+
+snippet dt ""
+DATE
+endsnippet
+
+snippet dtt "datetime"
+DATETIME${1:(${2:fsp})}
+endsnippet
+
+snippet tst "timestamp"
+TIMESTAMP${1:($${2:fsp})}
+endsnippet
+
+snippet tme "time"
+TIME${1:(${2:fsp})}
+endsnippet
+
+snippet yr "year"
+YEAR
+endsnippet
+
+# keywords
+
+snippet add "adds column in table"
+ADD $0
+endsnippet
+
+snippet addc "adds constraint to table"
+ADD CONSTRAINT $0
+endsnippet
+
+snippet alt "modifies table"
+ALTER $0
+endsnippet
+
+snippet altc "modifies column"
+ALTER COLUMN $0
+endsnippet
+
+snippet altt "modifies table"
+ALTER TABLE $0
+endsnippet
+
+snippet all "all"
+ALL
+endsnippet
+
+snippet and "and"
+AND
+endsnippet
+
+snippet any "any"
+ANY
+endsnippet
+
+snippet as "as"
+AS
+endsnippet
+
+snippet asc "asc"
+ASC
+endsnippet
+
+snippet bdb "backup database"
+BACKUP DATABASE ${1:db name}
+endsnippet
+
+snippet bet "between"
+BETWEEN
+endsnippet
+
+snippet case "case"
+CASE
+	WHEN ${1:condition} THEN ${2:this}
+END
+endsnippet
+
+snippet check "check"
+CHECK(${1:STATEMENT})
+endsnippet
+
+snippet col "column"
+COLUMN
+endsnippet
+
+snippet const "constraint"
+CONSTRAINT
+endsnippet
+
+snippet cre "create"
+CREATE
+endsnippet
+
+snippet cred "create database"
+CREATE DATABASE ${1:db name}
+endsnippet
+
+snippet crei "create index"
+CREATE INDEX ${1:ind name}
+endsnippet
+
+snippet crerv "create or replace view"
+CREATE OR REPLACE VIEW [${1:VIEW}]
+endsnippet
+
+snippet cret "create table"
+CREATE TABLE ${1:table name} (
+	$2
+);
+endsnippet
+
+snippet crep "create procedure"
+CREATE PROCEDURE ${1:name}
+endsnippet
+
+snippet creui "create unique index"
+CREATE UNIQUE INDEX ${1:name}
+endsnippet
+
+snippet crev "create view"
+CREATE VIEW [${1:name}]
+endsnippet
+
+snippet dcol "drop column"
+DROP COLUMN ${1:col name}
+endsnippet
+
+snippet dcon "drop constraint"
+DROP CONSTRAINT ${1:name}
+endsnippet
+
+snippet ddb "drop database"
+DROP DATABASE ${1:db name}
+endsnippet
+
+snippet dde "drop default"
+DROP DEFAULT
+endsnippet
+
+snippet din "drop index"
+DROP INDEX
+endsnippet
+
+snippet dtb "drop table"
+DROP TABLE ${1:tbl name}
+endsnippet
+
+snippet dvi "drop view"
+DROP VIEW [${1:view}];
+endsnippet
+
+snippet fkey "foreign key"
+FOREIGN KEY (${1:name}) REFERENCES ${2:name}($1)
+endsnippet
+
+snippet foj "full outer join"
+FULL OUTER JOIN ${1:row} ON ${2:other.row} = `!p snip.rv = f'{t[1]}.{t[2].split('.')[1]}'`
+endsnippet
+
+snippet grb "group by"
+GROUP BY ${1:name}
+endsnippet
+
+snippet inj "inner join"
+INNER JOIN ${1:row} ON ${2:other.row} = `!p snip.rv = f'{t[1]}.{t[2].split('.')[1]}'`
+endsnippet
+
+snippet ini "insert into"
+INSERT INTO ${1:row} ($2)
+VALUES ($3);
+endsnippet
+
+snippet inis "insert into select"
+INSERT INTO ${1:name} ($2)
+SELECT $3 FROM $4;
+endsnippet 
+
+snippet isn "is null"
+IS NULL
+endsnippet
+
+snippet isnn "is not null"
+IS NOT NULL
+endsnippet
+
+snippet lej "left join"
+LEFT JOIN ${1:row} ON ${2:other.row} = `!p snip.rv = f'{t[1]}.{t[2].split('.')[1]}'`
+endsnippet 
+
+snippet nnu "not null"
+NOT NULL
+endsnippet
+
+snippet orb "order by"
+ORDER BY ${1:name}
+endsnippet
+
+snippet foj "full outer join"
+
+FULL OUTER JOIN ${1:row} ON ${2:other.row} = `!p snip.rv = f'{t[1]}.{t[2].split('.')[1]}'`
+endsnippet 
+
+snippet pkey "primary key"
+PRIMARY KEY (${1:id})
+endsnippet
+
+snippet rij "right join"
+RIGHT JOIN ${1:row} ON ${2:other.row} = `!p snip.rv = f'{t[1]}.{t[2].split('.')[1]}'`
+endsnippet
+
+snippet sel "select"
+SELECT ${1:*} FROM ${2:db}
+endsnippet
+
+snippet seld "select distinct"
+SELECT DISTINCT ${1:thing} FROM ${2:db}
+endsnippet
+
+snippet seli "select into"
+SELECT ${1:*} INTO ${2:db2} FROM ${3:db1}
+endsnippet
+
+snippet selt "select top"
+SELECT TOP ${1:*} FROM ${2:db}
+endsnippet
+
+snippet trt "truncate table"
+TRUNCATE TABLE ${1:name}
+endsnippet
+
+

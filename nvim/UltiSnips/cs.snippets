@@ -1,0 +1,111 @@
+global !p
+Vars = {'sb': 'sbyte', 'b': 'byte', 'sh': 'short', 'ush': 'ushort', 'i': 'int','ui': 'uint', 'ul': 'ulong','c': 'char','f':'float', 'd': 'double', 'dec': 'decimal', 'bo': 'bool', 's': 'string','v': 'void'}
+
+choice = {'r': '', 's':'static'}
+endglobal
+
+# input and output
+snippet cw "console writeline" b
+Console.WriteLine(${1:"Hello world"});
+endsnippet
+
+snippet rdl "console readline" b
+Console.ReadLine();
+endsnippet
+# beslissingen
+snippet if "if statement" b
+if (${1:Condition})
+{
+	${2://code}
+}
+endsnippet
+
+snippet enum "enum" b
+enum ${1:Name} { $2 }
+endsnippet
+
+snippet switch "switch statement" b
+switch (${1:value})
+{
+	case ${2:constant}:
+	break;
+
+	default:
+	break;
+}
+endsnippet
+
+#loops
+
+snippet while "while loop" b
+while (${1:Condition})
+{
+	${2://code}
+}
+endsnippet
+
+snippet dow "dow hile loop " b
+do
+{
+	${2://code}
+} while (${1:Condition})
+endsnippet
+
+snippet for "for loop" b
+for (int ${1:i}; $1 < $2; $1++ )
+{
+	${3://code}
+}
+endsnippet
+
+snippet "(\w+)\(\)(\w)" "make method" r
+`!p
+snip.rv = Vars[match.group(1)]; snip.rv = choice[match.group(2)]
+` ${1:MethodName} ($2)
+{
+	${3://code}
+}
+endsnippet
+
+snippet usingS "adding using" b
+using Sytem.Linq;
+using System.Collections.Generic;
+endsnippet
+
+snippet "(\w+)arr" "make an array" r
+`!p
+snip.rv = Vars[match.group(1)]`[] `!p snip.rv = match.group(1)`${1:arr} = new `!p snip.rv = Vars[match.group(1)]`[];
+endsnippet
+
+snippet class "make a class" b
+class ${1:ClassName}
+{
+	${2://code}
+}
+endsnippet
+
+
+snippet aprop "get and set" b
+public ${1:int} ${2:VarName} {get;set;}
+endsnippet
+
+snippet propg "automatic propery with private set"
+public ${1:int} ${2:VarName} {get; private set;}
+endsnippet 
+
+snippet fprop "full property"
+private $1 `!p snip.rv = t[2].lower()`; 
+public ${1:int} ${2:Vars} 
+{
+	get { return `!p snip.rv = t[2].lower()`; }
+	set { `!p snip.rv = t[2].lower()` = value; }
+}
+endsnippet 
+
+snippet list "List Element"
+List<${1:int}> ${2:VarName} = new List<$1>();
+endsnippet 
+
+snippet dict "Dictionary Element"
+Dictionary<${1:int},${2:int}> ${3:VarName} = new Dictionary<$1,$2>();
+endsnippet 

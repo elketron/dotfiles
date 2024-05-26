@@ -1,0 +1,1242 @@
+snippet dr "DigitalRead function" 
+digitalRead(${1:pin});
+endsnippet
+
+snippet dwi "Digital Write low" 
+digitalWrite(${1:pin},LOW);
+endsnippet
+
+snippet dwh "Digital Write high" 
+digitalWrite(${1:pin},HIGH);
+endsnippet 
+
+snippet pmo "pinmode output" 
+pinMode(${1:pin},OUTPUT);
+endsnippet
+
+snippet pmi "pinmode input" 
+pinMode(${1:pin},INPUT);
+endsnippet 
+
+snippet ar "Analog Read" 
+analogRead(${1:pin});
+endsnippet
+
+snippet anr "analog reference" 
+analogReference(${1:type});
+endsnippet
+
+snippet anw "analog write" 
+analogWrite(${1:pin},${2:value});
+endsnippet
+
+snippet nTon "the no tone function" 
+noTone(${1:pin});
+endsnippet
+
+snippet puli "the pulse in function" 
+pulseIn(${1:pin},${2:value},${3:timeout});
+endsnippet
+
+snippet pulil "pulse in long function"
+pulseInLong(${1:pin},${2:value},${3:timeout});
+endsnippet
+
+snippet shin "shift in function" 
+shiftIn(${1:dataPin},${2:clockPin},${3:bitOrder});
+endsnippet
+
+snippet shot "shift out function" 
+shiftOut(${1:datapin},${2:clockPin},${3:bitOrder},${4:value});
+endsnippet
+
+snippet ton "the tone function" 
+tone(${1:pin},${2:frequency},${3:duration});
+endsnippet
+
+snippet del "the delay function" 
+delay(${1:ms});
+endsnippet
+
+snippet delm "delay in microsenconds" 
+delayMicroseconds(${1:us});
+endsnippet
+
+snippet micr "get runningtime in us" 
+micros();
+endsnippet
+
+snippet mill "get runningtime in ms" 
+millis();
+endsnippet
+
+snippet abs "absolute value function" 
+abs(${1:x});
+endsnippet
+
+snippet contr "constrains a number within a range" 
+constrain(${1:x},${2:min val},${3:max val});
+endsnippet
+
+snippet map "remaps a number from one range to another" 
+map(${1:value},${2:fromLow},${3:fromHigh},${4:toLow},${5:ToHigh});
+endsnippet
+
+snippet max "calculates the max of two nums" 
+max(${1:x},${2:y});
+endsnippet
+
+snippet min "calculates the min of two nums" 
+min(${1:x},${2:y});
+endsnippet
+
+snippet pow "calculates the value of a num raised to a power" 
+pow(${1:base},${2:exponent});
+endsnippet
+
+snippet sqrt "calculates the square root of a num" 
+sqrt($1);
+endsnippet
+
+snippet cos "cosine" b
+cos(${1:rad});
+endsnippet
+
+snippet sin "sinus" b
+sin(${1:rad});
+endsnippet
+
+snippet tan "tangent" b
+tan(${1:rad});
+endsnippet
+
+snippet isal "analyse if a char is a letter" b
+isAlpha(${1:thisChar});
+endsnippet
+
+snippet isaln "analyse if a char is either a num or letter" b
+isAlphaNumeric(${1:thisChar})
+endsnippet
+
+snippet isac "analyse if char is Ascii" b
+isAscii(${1:thisChar});
+endsnippet
+
+snippet iscont "analyse if char is controll char" a
+isControl(${1:thisChar});
+endsnippet
+
+snippet isdig "analyse if char is a digit" b
+isDigit(${1:thisChar});
+endsnippet
+
+snippet isgrap "analyse if char is printable with some content" b
+isGraph(${1:thisChar});
+endsnippet
+
+snippet ishex "analyse if char is hex" b
+isHexadecimalDigit(${1:thisChar});
+endsnippet
+
+snippet islow "analyse if char is lower case" b
+isLowerCase(${1:thisChar});
+endsnippet
+
+snippet ispint "analyse if char is printable" b
+isPrintable(${1:thisChar});
+endsnippet
+
+snippet ispun "anaylse if char is punctuation" b
+isPunct(${1:thisChar});
+endsnippet
+
+snippet isspac "analyse if char is a space" b
+isSpace(${1:thisChar});
+endsnippet
+
+snippet isup "analyse if char is upper case" b
+isUpperCase(${1:thisChar});
+endsnippet
+
+snippet iswhit "analyse if char is a space char" b
+isWhitespace(${1:thisChar});
+endsnippet
+
+snippet ran "random function" b
+random(${1:min},${2:max});
+endsnippet
+
+snippet rans " initializes the pseudo-random number generator" b
+randomSeed(${1:seed});
+endsnippet
+
+snippet cbit "computes the value of the specified bit"  b
+bit(${1:n});
+endsnippet
+
+snippet clbit "clear a bit of a numeric var" b
+bitClear(${1:x},${2:bit to clear});
+endsnippet
+
+snippet rbit "reads a bit of a number" b
+bitRead(${1:num to read},${2:bit to read});
+endsnippet
+
+snippet sbit "sets a bit of a num var" b
+bitSet(${1:numvar},${1:bit to set});
+endsnippet
+
+snippet wbit "writes a bit of a numvar" b
+bitWrite(${1:numvar},${2:bit of numvar},${3:value});
+endsnippet
+
+snippet hiby "extracts the high-order byte of a word" b
+highByte(${1:value});
+endsnippet
+
+snippet loby "extracts the low-order byteof a word" b
+lowByte(${1:value});
+endsnippet
+
+snippet attin "attach an intterupt" b
+attachInterrupt(digitalPinToInterrupt(${1:pin}),${2:ISR},${3:mode});
+endsnippet
+
+snippet detin "turns of the given interrupt" b
+detachInterrupt(digitalPinToInterrupt(${1:pin}));
+endsnippet
+
+snippet cuint "converts a value to uint" b
+(unsigned int)
+endsnippet
+
+snippet culon "converts a value to a unsigned long" b
+(unsigned long)
+endsnippet
+
+snippet cbyte "converts a value to the byte type" b
+(byte)
+endsnippet
+
+snippet cword "converts a value to the word value" b
+(word)
+endsnippet
+
+snippet cchar "converts a value to the char type" b
+(char)
+endsnippet
+
+snippet cfloat "converts a value to the float type" b
+(float)
+endsnippet
+
+snippet cint "converts a value to the int type" b
+(int)
+endsnippet
+
+snippet clon "converts a value to the long type" b
+(long)
+endsnippet
+
+snippet  "(\w+)arr" "makes an array" r
+`!p 
+dict = {'s':'String', 'b': 'bool', 'by': 'byte', 'c': 'char', 'd': 'double', 'f': 'float', 'i': 'int', 'l': 'long', 'sh': 'short', 'si': 'size_t', 'uc': 'unsigned char', 'ui': 'unsigned int', 'ul': 'unsigned long' }
+snip.rv = dict[match.group(1)]`[] `!p snip.rv = match.group(1)[0]`${1:arr} = $2;
+endsnippet
+
+snippet sizof "the sizeof operator" b
+sizeof(${1:var});
+endsnippet
+
+snippet dowh "the do while loop" b
+do {
+	${2://code}
+} while (${1:condition})
+endsnippet
+
+snippet if "if statement" b
+if (${1:condition}) {
+	${2://code}
+}
+endsnippet
+
+snippet ife "if else statement" b
+if (${1:condition}) {
+	${2://code}
+}
+else{
+	${3://code}
+}
+endsnippet
+
+snippet iffe "if ifelse else statement" b
+if (${1:condition1}){
+	${2://code}
+}
+else if (${3:condition2}){
+	${4:code}
+}
+else {
+	${}
+}
+endsnippet
+
+snippet for "for loop" b
+for (int $1; $1 < $2; $1++){
+	${3://code}
+}
+endsnippet
+
+snippet while "while loop" b
+while (${1:condition}){
+	${2://code}
+}
+endsnippet
+
+snippet switch "switch statement" b
+switch (${1:var}){
+	case $2:
+		$3
+	break;
+	default:
+		
+	break;
+}
+endsnippet 
+
+# Serial snippets
+snippet Ser.av "Serial.available()"
+Serial.available();
+endsnippet 
+
+snippet Ser.avfw "Serial.availableForWrite()"
+Serial.availableForWrite();
+endsnippet 
+
+snippet Ser.beg "Serial.begin"
+Serial.begin(${1:9600},${2:config});
+endsnippet 
+
+snippet Ser.end "Serial.end"
+Serial.end();
+endsnippet 
+
+snippet Ser.fin "Serial.find"
+Serial.find(${1:target},${2:length});
+endsnippet 
+
+snippet Ser.finu "Serial.findUntil"
+Serial.findUntil(${1:target},${2:terminal});
+endsnippet 
+
+snippet Ser.flu "Serial.flush"
+Serial.flush();
+endsnippet 
+
+snippet Ser.parf "Serial.parseFloat"
+Serial.parseFloat(${1:lookahead},${2:ignore});
+endsnippet 
+
+snippet Ser.pari "Serial.parseInt"
+Serial.parseInt(${1:lookahead},${2:ignore});
+endsnippet 
+
+snippet Ser.pee "Serial.peek"
+Serial.peek();
+endsnippet 
+
+snippet Ser.pri "Serial.print"
+Serial.print(${1:val},${2:format});
+endsnippet 
+
+snippet Ser.pril "Serial.println"
+Serial.println(${1:val},${2:format});
+endsnippet 
+
+snippet Ser.rea "Serial.read"
+Serial.read();
+endsnippet 
+
+snippet Ser.reab "Serial.readBytes"
+Serial.readBytes(${1:buffer},${2:length});
+endsnippet 
+
+snippet Ser.reabu "Serial.readBytesUntil"
+Serial.readBytesUntil(${1:character},${2:buffer},${3:length});
+endsnippet 
+
+snippet Ser.reas "Serial.readString"
+Serial.readString();
+endsnippet 
+
+snippet Ser.reasu "Serial.readStringUntil"
+Serial.readStringUntil(${1:terminator});
+endsnippet 
+
+snippet Ser.sto "Serial.setTimeout"
+Serial.setTimeout(${1:time});
+endsnippet 
+
+snippet Ser.wri "Serial.write"
+Serial.write(${1:val},${2:len});
+endsnippet 
+
+snippet serev "SerialEvent function"
+void serialEvent$1 (){
+	${2:/* code */}
+}
+endsnippet 
+
+# Stream snippets
+
+snippet str.ava "Stream.available"
+stream.available();
+endsnippet 
+
+snippet str.rea "Stream.read"
+stream.read();
+endsnippet 
+
+snippet str.flu "stream.flush"
+stream.flush();
+endsnippet
+
+snippet str.fin "stream.find"
+stream.find(${1:target},${2:length});
+endsnippet 
+
+snippet str.finu "stream.findUntil"
+stream.findUntil(${1:target},${2:terminal});
+endsnippet 
+
+snippet str.pee "stream.peek"
+stream.peek();
+endsnippet 
+
+snippet str.reab "stream.readBytes"
+stream.readBytes(${1:buffer},${2:length});
+endsnippet 
+
+snippet str.reabu "stream.readBytesUntil"
+stream.readBytesUntil(${1:character},${2:buffer},${3:length});
+endsnippet 
+
+snippet str.reas "stream.readString"
+stream.readString();
+endsnippet 
+
+snippet str.reasu "stream.readStringUntil"
+stream.readStringUntil(${1:terminator});
+endsnippet 
+
+snippet str.pari "stream.parseInt"
+stream.parseInt(${1:lookahead},${2:ignore});
+endsnippet 
+
+snippet str.parf "stream.parseFloat"
+stream.parseFloat(${1:lookahead},${2:ignore});
+endsnippet 
+
+snippet str.sto "stream.setTimeout"
+stream.setTimeout(${1:time});
+endsnippet 
+
+# Keyboard snippets
+snippet key.beg "Keyboard.begin"
+Keyboard.begin();
+endsnippet
+
+snippet key.end "Keyboard.end"
+Keyboard.end();
+endsnippet 
+
+snippet key.pre "Keyboard.press"
+Keyboard.press(${1:key});
+endsnippet 
+
+snippet key.prin "Keyboard.print"
+Keyboard.print(${1:character(s)});
+endsnippet 
+
+snippet key.pril "Keyboard.println"
+Keyboard.println(${1:character(s)});
+endsnippet 
+
+snippet key.rel "Keyboard.release"
+Keyboard.release(${1:key});
+endsnippet 
+
+snippet key.rela "Keyboard.releaseAll"
+Keyboard.releaseAll();
+endsnippet 
+
+snippet key.wri "Keyboard.write"
+Keyboard.write(${1:character});
+endsnippet 
+
+# mouse snippets
+snippet mou.beg "Mouse.begin"
+Mouse.begin();
+endsnippet 
+
+snippet mou.cli "Mouse.click"
+Mouse.click(${1:button});
+endsnippet 
+
+snippet mou.end "Mouse.end"
+Mouse.end();
+endsnippet 
+
+snippet mou.mov "Mouse.move"
+Mouse.move(${1:xVal},${2:yval},${3:wheel});
+endsnippet 
+
+snippet mou.pre "Mouse.pres"
+Mouse.press(${1:button});
+endsnippet 
+
+snippet mou.rel "Mouse.release"
+Mouse.release(${1:button});
+endsnippet 
+
+snippet mou.pres "Mouse.isPressed"
+Mouse.isPressed(${1:button});
+endsnippet 
+
+# EEPROM snippets
+snippet eep.rea "EEPROM.read"
+EEPROM.read(${1:address});
+endsnippet 
+
+snippet eep.wri "EEPROM.write"
+EEPROM.write(${1:address},${2:value});
+endsnippet 
+
+snippet eep.upd "EEPROM.update"
+EEPROM.update(${1:address},${2:value});
+endsnippet 
+
+snippet eep.get "EEPROM.get"
+EEPROM.get(${1:address},${2:data});
+endsnippet 
+
+snippet eep.put "EEPROM.put"
+EEPROM.put(${1:address},${2:data});
+endsnippet 
+
+# ehternet snippets
+snippet eth.beg "Ethernet.begin"
+Ethernet.begin(${1:mac},${2:ip},${3:dns},${4:gateway},${5:subnet});
+endsnippet 
+
+snippet eth.dnssip "Ethernet.dnsServerIP"
+Ethernet.dnsServerIP();
+endsnippet 
+
+snippet eth.gaip "Ethernet.gatewayIP"
+Ethernet.gatewayIP();
+endsnippet 
+
+snippet eht.hwst "Ethernet.hardwareStatus"
+Ethernet.hardwareSatus();
+endsnippet 
+
+snippet eth.ini  "Ethernet.init"
+Ethernet.init(${1:sspin});
+endsnippet 
+
+snippet eth.lst "Ethernet.linkStatus"
+Ethernet.linkStatus();
+endsnippet 
+
+snippet eth.loip "Ethernet.localIP"
+Ethernet.localIP();
+endsnippet 
+
+snippet eth.maca "Ethernet.MACAddress"
+Ethernet.MACAddress(${1:mac address});
+endsnippet 
+
+snippet eth.mait "Ethernet.maintain"
+Ethernet.maintain();
+endsnippet 
+
+snippet eth.sdnssip "Ethernet.setDnsServerIP"
+Ethernet.setDnsServerIP(${1:dns server});
+endsnippet 
+
+snippet eth.sgaip "Ethernet.setGatewayIP"
+Ethernet.setGatewayIP(${1:gateway});
+endsnippet 
+
+snippet eth.sloip  "Ethernet.setLocalIP"
+Ethernet.setLocalIP(${1:local IP});
+endsnippet 
+
+snippet eth.smaca "Ethernet.setMACAddress"
+Ethernet.setMACAddress(${1:mac address});
+endsnippet 
+
+snippet eth.sretc  "Ethernet.setRetransmissionCount"
+Ethernet.setRetransmissionCount(${1:number});
+endsnippet 
+
+snippet eth.srett "Ethernet.setRetransmissionTimeout"
+Ethernet.setRetransmissionTimeout(${1:ms});
+endsnippet 
+
+snippet eth.ssnm "Ethernet.setSubnetMask"
+Ethernet.setSubnetMask(${1:subnet});
+endsnippet 
+
+snippet eht.snm "Ethernet.subnetMask"
+Ethernet.subnetMask();
+endsnippet 
+
+snippet eth.ipad "IPAddress"
+IPAddress ${1:name} ($2, $3, $4, $5);
+endsnippet 
+
+snippet eth.eths "EthernetServer"
+EthernetServer ${1:server_name} = EthernetServer(${2:port});
+endsnippet 
+
+snippet ser.beg "server.begin"
+server.begin();
+endsnippet 
+
+snippet ser.ava "server.available"
+server.available();
+endsnippet 
+
+snippet ser.wri "server.write"
+server.write(${1:buf},${2:len});
+endsnippet 
+
+snippet ser.pri "server.print"
+server.print(${1:data},${2:BASE});
+endsnippet 
+
+snippet ser.pril "server.println"
+server.println(${1:data},${2:BASE});
+endsnippet 
+
+snippet eth.clie  "EthernetClient"
+EthernetClient ${1:client};
+endsnippet 
+
+snippet cli.con "client.connected"
+client.connected();
+endsnippet 
+
+snippet cli.wri "client.write"
+client.write(${1:buffer},${2:length});
+endsnippet
+
+snippet cli.pri "client.print"
+client.print(${1:data},${2:BASE});
+endsnippet 
+
+snippet cli.pril  "client.println"
+client.println(${1:data},${2:BASE});
+endsnippet 
+
+snippet cli.ava "client.available"
+client.available();
+endsnippet 
+
+snippet cli.rea "client.read"
+client.read();
+endsnippet 
+
+snippet cli.flu "client.flush"
+client.flush();
+endsnippet 
+
+snippet cli.sto "client.stop"
+client.stop();
+endsnippet 
+
+snippet udp.beg "EthernetUDP.begin"
+Udp.begin(${1:localport});
+endsnippet 
+
+snippet udp.rea "UDP.read"
+Udp.read(${1:packetBuffer},${2:MaxSize});
+endsnippet 
+
+snippet udp.wri "Udp.write"
+Udp.write(${1:message/buffer},${2:size});
+endsnippet 
+
+snippet udp.begp "Udp.beginPacket"
+Udp.beginPacket(${1:remoteIP},${2:remotePort});
+endsnippet 
+
+snippet udp.endp "Udp.endPacket"
+Udp.endPacket();
+endsnippet 
+
+snippet udp.parp "Udp.parsePacket"
+Udp.parsePacket();
+endsnippet 
+
+snippet udp.ava "Udp.available"
+Udp.available();
+endsnippet 
+
+snippet udp.sto "Udp.Stop"
+Udp.stop();
+endsnippet 
+
+snippet udp.remip "Udp.remoteIP"
+Udp.remoteIP();
+endsnippet 
+
+snippet udp.remp "Udp.remotePort"
+Udp.remotePort();
+endsnippet 
+
+# Firmate snippets
+snippet fir.beg "Firmata.begin"
+Firmata.begin();
+endsnippet
+
+snippet fir.prver "Firmata.printVersion"
+Firmata.printVersion();
+endsnippet 
+
+snippet fir.blver "Firmata.blinkVersion"
+Firmata.blinkVersion();
+endsnippet 
+
+snippet fir.prfiver "Firmata.printFirmwareVersion"
+Firmata.printFirmwareVersion();
+endsnippet 
+
+snippet fir.sfiver "Firmata.setFirmwareVersion"
+Firmata.setFirmwareVersion(${1:major}, ${2:minor});
+endsnippet 
+
+snippet fir.sfinave "Firmata.setFirmwareNameAndVersion"
+Firmata.setFirmwareNameAndVersion(${1:name},${2:major}, ${3:minor});
+endsnippet 
+
+snippet fir.sena "Firmata.senAnalog"
+Firmata.sendAnalog(${1:pin}, ${2:value});
+endsnippet 
+
+snippet fir.sendip "Firmata.sendDigitalPort"
+Firmata.sendDigitalPort(${1:portNumber},${2:portData});
+endsnippet 
+
+snippet fir.sens "Firmata.sendString"
+Firmata.sendString(${1:string});
+endsnippet 
+
+snippet fir.sensc "Firmata.sendString with custom command"
+Firmata.sendString(${1:command},${2:bytec},${3:bytev});
+endsnippet 
+
+snippet fir.senss "Firmata.sendSysex"
+Firmata.sendSysex(${1:command},${2:bytev},${3:bytev});
+endsnippet 
+
+snippet fir.wri "Firmata.write"
+Firmata.write(${1:name});
+endsnippet 
+
+snippet fir.ava "Firmata.available"
+Firmata.available();
+endsnippet 
+
+snippet fir.att "Firmata.attach"
+Firmata.attach(${1:command},${2:Function});
+endsnippet 
+
+snippet fir.det "Firmata.detach"
+Firmata.detach(${1:command});
+endsnippet 
+
+snippet fir.senvatsb "Firmata.sendValueAsTwo7bitBytes"
+Firmata.sendValueAsTwo7bitBytes(${1:value});
+endsnippet 
+
+snippet fir.stss "Firmata.startSysex"
+Firmata.startSysex(${1:void});
+endsnippet 
+
+snippet fir.endss "Firmata.endSysex"
+Firmata.sendSysex(${1:void});
+endsnippet 
+
+snippet fir.gen "Firmata generic callback function"
+void callbackFunction(byte pin, int value);
+endsnippet 
+
+snippet fir.sysr "Firmata system reset callback function"
+void systemResetCallbackFunction(void);
+endsnippet 
+
+snippet fir.str "Firmata string callback function"
+void stringCallbackFunction(char *myString);
+endsnippet 
+
+snippet fir.syse "Firmata syses callback function"
+void sysexCallbackFunction(byte command, byte byteCount, byte *arrayPointer);
+endsnippet 
+
+# GSM snippets
+snippet gsm "gsm initialise"
+GSM GSMAccess;
+endsnippet 
+
+snippet gsm.beg "gsm.begin"
+gsm.begin(${1:pin},${2:restart},${3:sync});
+endsnippet 
+
+snippet gsm.shut "gsm.shutdown"
+gsm.shutdown();
+endsnippet 
+
+snippet voi "GSM Voicecall class"
+GSMVoiceCall vcs;
+endsnippet 
+
+snippet voi.gvcs "voice.getVoiceCallStatus"
+voice.getVoiceCallStatus();
+endsnippet 
+
+snippet voi.red "voice.ready"
+voice.ready();
+endsnippet 
+
+snippet voi.ansc "voice.answerCall"
+voice.answerCall();
+endsnippet 
+
+snippet voi.voic "voice.voiceCall"
+voice.voiceCall(${1:number});
+endsnippet 
+
+snippet voi.hanc "voice.hangCall"
+voice.hangCall();
+endsnippet 
+
+snippet voi.rcan "voice.retrieveCallingNumber"
+voice.retrieveCallingNumber(${1:number},${2:size});
+endsnippet 
+
+snippet sms "GSM SMS class"
+GSM_SMS sms;
+endsnippet 
+
+snippet sms.beg "SMS.beginSMS"
+sms.beginSMS(${1:number});
+endsnippet 
+
+snippet sms.red "SMS.ready"
+sms.ready();
+endsnippet 
+
+snippet sms.end "SMS.endSMS"
+sms.endSMS();
+endsnippet 
+
+snippet sms.ava "SMS.available"
+sms.available();
+endsnippet 
+
+snippet sms.rmnm "SMS.remoteNumber"
+sms.remoteNumber(${1:number},${2:size});
+endsnippet 
+
+snippet sms.rea "SMS.read"
+sms.read();
+endsnippet 
+
+snippet sms.wri "SMS.write"
+sms.write(${1:value});
+endsnippet 
+
+snippet sms.pri "SMS.print"
+sms.print(${1:message});
+endsnippet 
+
+snippet sms.pee "SMS.peek"
+sms.peek();
+endsnippet 
+
+snippet sms.flu "SMS.flush"
+sms.flush();
+endsnippet 
+
+snippet grps "GSM GPRS class"
+GPRS gprs;
+endsnippet
+
+snippet grps.att "grps.attachGPRS"
+gprs.attachGPRS(${1:APN},${2:user},${3:password});
+endsnippet 
+
+snippet gsc "GSM client class"
+GSMClient client;
+endsnippet 
+
+snippet gsc.red "client.ready"
+client.ready();
+endsnippet 
+
+snippet gsc.con "client.connect"
+client.connect(${1:ip},${2:port});
+endsnippet 
+
+snippet gsc.bwri "beginwrite"
+client.beginWrite();
+endsnippet 
+
+snippet gsc.wri "write"
+client.write(${1:buffer},${2:size});
+endsnippet 
+
+snippet gsc.ewri "endwrite"
+client.endwrite();
+endsnippet 
+
+snippet gsc.cond "connected"
+client.connected();
+endsnippet 
+
+snippet gsc.rea "read"
+client.read();
+endsnippet 
+
+snippet gsc.ava "available"
+client.available();
+endsnippet 
+
+snippet gsc.pee "peek"
+client.peek();
+endsnippet 
+
+snippet gsc.flu "flush"
+client.flush();
+endsnippet 
+
+snippet gsc.sto "stop"
+client.stop();
+endsnippet 
+
+snippet gss "GSM Server class"
+GSMServer server;
+endsnippet 
+
+snippet gss.red "ready"
+server.ready();
+endsnippet 
+
+snippet gss.bwri "beginwrite"
+server.beginWrite();
+endsnippet 
+
+snippet gss.wri "write"
+server.write(${1:buffer},${2:size});
+endsnippet 
+
+snippet gss.ewri "endwrite"
+server.endWrite();
+endsnippet 
+
+snippet gss.rea "read"
+server.read();
+endsnippet 
+
+snippet gss.ava "available"
+server.available();
+endsnippet 
+
+snippet gss.sto "stop"
+server.stop();
+endsnippet 
+
+snippet gsmm "GSM Modem class"
+GSMModem modem;
+endsnippet 
+
+snippet gsmm.beg "begin"
+modem.begin();
+endsnippet 
+
+snippet gsmm.gime "get IMEI"
+modem.getIMEI();
+endsnippet 
+
+snippet gsms "GSM scanner class"
+GSMScanner scanner;
+endsnippet 
+
+snippet gsms.beg "begin"
+scanner.begin();
+endsnippet 
+
+snippet gsms.gcc "GetCurrenCarrier"
+scanner.getCurrentCarrier();
+endsnippet 
+
+snippet gsms.gss "GetSignalStrength"
+scanner.getSignalStrength();
+endsnippet 
+
+snippet gsp "GSM pin class"
+GSMPin pin;
+endsnippet 
+
+snippet gsp.beg "begin"
+pin.begin();
+endsnippet 
+
+snippet gsp.ipin "Ispin"
+pin.isPIN();
+endsnippet
+
+snippet gsp.cpin "check pin"
+pin.checkPIN(${1:PIN});
+endsnippet 
+
+snippet gsp.cpuk "check puk"
+pin.checkPUK(${1:puk},${2:pin});
+endsnippet 
+
+snippet gsp.pinc "change pin"
+pin.changePIN(${1:oldPin},${2:newPin});
+endsnippet 
+
+snippet gsp.spin "switch pin"
+pin.switchPIN(${1:pin});
+endsnippet 
+
+snippet gsp.creg "check reg"
+pin.checkReg();
+endsnippet 
+
+snippet gsp.gpinu "get pin used"
+pin.getPinUsed();
+endsnippet 
+
+snippet gsp.spinu "set pin used"
+pin.setPinUsed(${1:used});
+endsnippet 
+
+snippet gsb "GSM band class"
+GSMBand band;
+endsnippet 
+
+snippet gsb.beg "begin"
+band.begin();
+endsnippet 
+
+snippet gsb.gb "get band"
+band.getBand();
+endsnippet 
+
+snippet gsb.sb "set band"
+band.setBand(${1:type});
+endsnippet 
+
+# Liquid Crystal library snippets
+snippet lcd "liquid crystal library init"
+LiquidCrystal lcd($1,$2,$3,$4,$5,$6,$7);
+endsnippet 
+
+snippet lcd.beg "begin"
+lcd.begin(${1:cols},${2:rows});
+endsnippet 
+
+snippet lcd.cle "Clear"
+lcd.clear();
+endsnippet 
+
+snippet lcd.ho "Home"
+lcd.home();
+endsnippet 
+
+snippet lcd.scur "setCursor"
+lcd.setCursor(${1:cols},${2:rows});
+endsnippet 
+
+snippet lcd.wri "write"
+lcd.write(${1:data});
+endsnippet 
+
+snippet lcd.pri "print"
+lcd.print(${1:data},${2:BASE});
+endsnippet 
+
+snippet lcd.cur "cursor"
+lcd.cursor();
+endsnippet
+
+snippet lcd.ncur "noCursor"
+lcd.noCursor();
+endsnippet 
+
+snippet lcd.bli "blink"
+lcd.blink();
+endsnippet 
+
+snippet lcd.nbli "noBlink"
+lcd.noBlink();
+endsnippet 
+
+snippet lcd.dis "display"
+lcd.display();
+endsnippet 
+
+snippet lcd.ndis "noDisplay"
+lcd.noDisplay();
+endsnippet 
+
+snippet lcd.sdil "scrollDisplayLeft"
+lcd.scrollDiscplayLeft();
+endsnippet 
+
+snippet lcd.sdir "scrollDiscplayRight"
+lcd.scrollDisplayRight();
+endsnippet 
+
+snippet lcd.ascr "autoscroll"
+lcd.autoscroll();
+endsnippet 
+
+snippet lcd.nascr "noautoscroll"
+lcd.noAutoscroll();
+endsnippet 
+
+snippet lcd.ltr "left to right"
+lcd.leftToRight();
+endsnippet 
+
+snippet lcd.rtl "right to left"
+lcd.rightToLeft();
+endsnippet 
+
+snippet lcd.ccha "createChar"
+lcd.createChar();
+endsnippet 
+
+# SD library snippets
+snippet sd.beg "begin"
+SD.begin(${1:cspin});
+endsnippet 
+
+snippet sd.ex "exists?"
+SD.exists(${1:filename});
+endsnippet 
+
+snippet sd.mdi "make directory"
+SD.mkdir(${1:filename});
+endsnippet 
+
+snippet sd.op "open"
+SD.open(${1:filepath},${2:mode});
+endsnippet 
+
+snippet sd.rem "remove"
+SD.remove(${1:filename});
+endsnippet 
+
+snippet sd.rdi "remove directory"
+SD.rdmir(${1:filename});
+endsnippet 
+
+snippet fi.na "File name"
+file.name();
+endsnippet 
+
+snippet fi.ava "File available"
+file.available();
+endsnippet 
+
+snippet fi.clo "File close"
+file.close();
+endsnippet 
+
+snippet fi.flu "File flush"
+file.flush();
+endsnippet 
+
+snippet fi.pee "File peek"
+file.peek();
+endsnippet 
+
+snippet fi.pos "File position"
+file.position();
+endsnippet 
+
+snippet fi.pri "File print"
+file.print(${1:data},${2:BASE});
+endsnippet 
+
+snippet fi.pril "File print line"
+file.println(${1:data},${2:BASE});
+endsnippet 
+
+snippet fi.see "File seek"
+file.seek(${1:pos});
+endsnippet 
+
+snippet fi.si "File size"
+file.size();
+endsnippet 
+
+snippet fi.rea "File read"
+file.read(${1:buf},${2:len});
+endsnippet 
+
+snippet fi.wri "File write"
+file.write(${1:buf},${2:len});
+endsnippet 
+
+snippet fi.idir "File is directory?"
+file.isDirectory();
+endsnippet 
+
+snippet fi.onfi "File open next file"
+file.openNextFile();
+endsnippet 
+
+snippet fi.rwdi "File rewind directory"
+file.rewindDirectory();
+endsnippet 
+
+# servo library snippets
+snippet ser "servo library init"
+Servo ${1:servo};
+endsnippet 
+
+snippet ser.att "servo attach"
+${1:servo}.attach(${1:pin},${2:min},${3:max});
+endsnippet 
+
+snippet ser.wri "servo write"
+${1:servo}.write(${2:angle});
+endsnippet 
+
+snippet ser.wmic "servo write microsedons"
+${1:servo}.writeMicroseconds(${2:us});
+endsnippet 
+
+snippet ser.wri "servo write"
+${1:servo}.read();
+endsnippet 
+
+snippet ser.atd "servo attached"
+${1:servo}.attached();
+endsnippet 
+
+snippet ser.det "servo detach"
+${1:servo}.detach();
+endsnippet 
+
+
+

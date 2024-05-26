@@ -1,0 +1,38 @@
+snippet bash "shebang at top of file"
+#!/usr/bin/env bash 
+endsnippet 
+
+snippet if "if statement"
+if [ ${1:statement} ]; then
+	$2
+fi
+endsnippet 
+
+snippet elif "else if"
+elif [ ${1:statement} ]; then
+	$2
+endsnippet 
+
+snippet for "for loop"
+for ${1:var} in ${2:statemnt}; do
+	$3
+done
+endsnippet 
+
+#snippet case "case statmen"
+#case "${1:var}" in 
+#	
+#endsnippet 
+
+snippet while "while loop"
+while ${1:condition}; do
+	$2
+done
+endsnippet
+
+snippet doc "make a doc with cat command"
+cat <<END
+$1
+END
+${0:VISUAL}
+endsnippet 
