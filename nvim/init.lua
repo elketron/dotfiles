@@ -32,6 +32,5 @@ require('treesitter')
 require("_lspsaga")
 require("angular")
 --require('snips')
-vim.cmd(":color srcery")
-
 -- require('theme')
+

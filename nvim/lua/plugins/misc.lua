@@ -34,10 +34,6 @@ return {
 	'scrooloose/syntastic',
 	'sheerun/vim-polyglot',
 	-- themes
-	-- 'ghifarit53/tokyonight-vim'
-	--{'srcery-colors/srcery-vim', name="srcery"},
-	--{ "catppuccin/nvim", name = "catppuccin" },
-	'ayu-theme/ayu-vim',
 	'vim-airline/vim-airline',
 	'ryanoasis/vim-devicons',
 
@@ -58,13 +54,13 @@ return {
 	{
 		'nvimdev/lspsaga.nvim',
 		event = 'LspAttach',
-    config = function()
-        require('lspsaga').setup({})
-    end,
-    dependencies = {
-        'nvim-treesitter/nvim-treesitter', -- optional
-        'nvim-tree/nvim-web-devicons'     -- optional
-    }
+		config = function()
+			require('lspsaga').setup({})
+		end,
+		dependencies = {
+			'nvim-treesitter/nvim-treesitter',   -- optional
+			'nvim-tree/nvim-web-devicons'        -- optional
+		}
 	},
 	{ 'joeveiga/ng.nvim' },
 
@@ -84,10 +80,10 @@ return {
 	'hrsh7th/cmp-calc',
 	{
 		"L3MON4D3/LuaSnip",
-	-- follow latest release.
-	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!).
-	build = "make install_jsregexp"
+		-- follow latest release.
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp"
 	},
 	'saadparwaiz1/cmp_luasnip',
 	"amarakon/nvim-cmp-buffer-lines",
@@ -115,14 +111,14 @@ return {
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",                          opts = {} },
 
 	{
-    'akinsho/flutter-tools.nvim',
-    lazy = false,
-    dependencies = {
-        'nvim-lua/plenary.nvim',
-        'stevearc/dressing.nvim', -- optional for vim.ui.select
-    },
-    config = true,
-}
+		'akinsho/flutter-tools.nvim',
+		lazy = false,
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			'stevearc/dressing.nvim',   -- optional for vim.ui.select
+		},
+		config = true,
+	}
 
 	--development
 	--{ dir = "elketron/ng-tools",             dev = true,                            config = true }

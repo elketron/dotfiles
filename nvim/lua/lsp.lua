@@ -55,7 +55,17 @@ lsp.arduino_language_server.setup({
 lsp.sqlls.setup { capabilities = capabilities }
 lsp.volar.setup { capabilities = capabilities }
 lsp.bashls.setup { capabilities = capabilities }
-lsp.rust_analyzer.setup { capabilities = capabilities }
+lsp.rust_analyzer.setup { capabilities = capabilities, settings = {
+    ["rust-analyzer"] = {
+      procMacro = {
+        ignored = {
+          leptos_macro = {
+            "server"
+          }
+        }
+      }
+    }
+} }
 lsp.gopls.setup { capabilities = capabilities }
 lsp.lua_ls.setup {
   capabilities = capabilities,
@@ -80,7 +90,9 @@ lsp.lua_ls.setup {
     },
   },
 }
-lsp.elixirls.setup {}
+lsp.elixirls.setup {
+  cmd = {"/bin/elixir-ls"}
+}
 
 require 'lsp-lens'.setup({
   include_declaration = true,

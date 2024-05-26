@@ -1,7 +1,9 @@
 return {
-	"srcery-colors/srcery-vim",
-	name = "srcery",
-	config = function()
-		vim.cmd.colorscheme = "srcery"
-	end
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {
+    style = "night",
+
+  },
 }
