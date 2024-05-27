@@ -15,8 +15,9 @@ set $down j
 set $up k
 set $right l
 
-set $m_win DP-2
-set $e_win DP-3
+set $win_1 DP-3
+set $win_2 DP-2
+set $win_3 DP-1 
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
@@ -27,30 +28,26 @@ set $menu wofi --show drun | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output $m_win bg $HOME/Pictures/Wallpapers/left_monitor.jpg fill
-output $e_win bg $HOME/Pictures/Wallpapers/rigth_monitor.jpg fill
+output * bg $HOME/wallpapers/LbR/AdvancedPlanet.png fill
+
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-#output $m_win pos 2560x0 res 2560x1440 transform 270
-output $m_win pos 0 560 res 3440x1140 scale 1.5
-output $e_win pos 3440 0 res 2560x1140 transform 270 scale 1.5
+#output $m_win pos 2560x0 res 2560x1440 transform 27
+output $win_1 pos 0 0 res 2560x1440
+output $win_2 pos 2560 0 mode 2560x1440@120Hz
+output $win_3 pos 5120 0 res 2560x1440
 
 
 #workspaces
-workspace 1 output $m_win
-workspace 2 output $m_win
-workspace 3 output $m_win
-workspace 4 output $m_win
-workspace 5 output $m_win
-workspace 6 output $e_win
-workspace 7 output $e_win
-workspace 8 output $e_win
-workspace 9 output $e_win
-workspace 10 output $e_win
+workspace 1 output $win_1
+workspace 2 output $win_2
+workspace 3 output $win_3
+workspace 4 output $win_3
+workspace 5 output $win_3
 
 # window config
 default_border none
@@ -145,23 +142,13 @@ exec swayidle -w \
     bindsym $mod+3 workspace number 3
     bindsym $mod+4 workspace number 4
     bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3
     bindsym $mod+Shift+4 move container to workspace number 4
     bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
+        # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
 # Layout stuff:
