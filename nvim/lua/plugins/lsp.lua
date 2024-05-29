@@ -1,76 +1,139 @@
 return {
-  {'neovim/nvim-lspconfig',
-  dependencies = {
-    "folke/neodev.nvim",
-    {"j-hui/fidget.nvim", opts = {}},
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "folke/neodev.nvim",
+      { "j-hui/fidget.nvim", opts = {} },
 
-    --"stevearce/conform.nvim",
+      { "stevearc/conform.nvim", opts = {} },
       "b0o/SchemaStore.nvim",
-  },
-  config = function()
-    require("neodev").setup{}
-
-    local capabilities = nil
-    capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-    local lspconfig = require "lspconfig"
-
-    local global_lib_path = vim.fn.expand("~/.bun/install/global/node_modules")
-
-    local servers = {
-      bashls = true,
-      rust_analyzer = true,
-      cssls = true,
-      sqlls = true,
-      volar = true,
-      gopls = true,
-      tailwindcss = true,
-      csharp_ls = true,
-      tsserver = true,
-      pyright = true,
-      zls = true,
-      angularls = {
-        cmd = {"ngserver", "--stdio", "--tsProbeLocations", global_lib_path, "--ngProbeLocations", global_lib_path, "--includeCompletionWithSnippetText"}
+    },
+    opts = {
+      inlay_hints = {
+        enable = true,
       },
-      lua_ls = {
-        settings = {
-          Lua = {
-            workspace = {
-              checkThirdParty = false,
-            },
-            codeLens = {
-              enable = true,
-            },
-            completion = {
-              callSnippet = "Replace",
-            },
-            doc = {
-              privateName = { "^_" },
-            },
-            hint = {
-              enable = true,
-              setType = false,
-              paramType = true,
-              paramName = "Disable",
-              semicolon = "Disable",
-              arrayIndex = "Disable",
+      codelens = {
+        enable = true,
+      },
+      document_highlight = {
+        enable = true,
+      },
+    },
+    config = function(_, opts)
+      require("neodev").setup({})
+
+      local capabilities = nil
+      capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      local lspconfig = require("lspconfig")
+
+      local global_lib_path = vim.fn.expand("~/.bun/install/global/node_modules")
+
+      local servers = {
+        bashls = true,
+        rust_analyzer = true,
+        cssls = true,
+        sqlls = true,
+        volar = true,
+        gopls = true,
+        tailwindcss = true,
+        csharp_ls = true,
+        tsserver = true,
+        pyright = true,
+        zls = true,
+        angularls = {
+          cmd = {
+            "ngserver",
+            "--stdio",
+            "--tsProbeLocations",
+            global_lib_path,
+            "--ngProbeLocations",
+            global_lib_path,
+            "--includeCompletionWithSnippetText",
+          },
+        },
+        lua_ls = {
+          settings = {
+            Lua = {
+              workspace = {
+                checkThirdParty = false,
+              },
+              codeLens = {
+                enable = true,
+              },
+              completion = {
+                callSnippet = "Replace",
+              },
+              doc = {
+                privateName = { "^_" },
+              },
+              hint = {
+                enable = true,
+                setType = false,
+                paramType = true,
+                paramName = "Disable",
+                semicolon = "Disable",
+                arrayIndex = "Disable",
+              },
             },
           },
         },
       }
-    }
 
-    for name, config in pairs(servers) do 
-      if config == true then
-        config = {}
+      for name, config in pairs(servers) do
+        if config == true then
+          config = {}
+        end
+        config = vim.tbl_deep_extend("force", {}, {
+          capabilities = capabilities,
+        }, config)
+
+        lspconfig[name].setup(config)
       end
-      config = vim.tbl_deep_extend("force", {}, {
-        capabilities = capabilities,
-      }, config)
 
-      lspconfig[name].setup(config)
-    end
+      local disable_semantic_tokens = {
+        lua = true,
+      }
 
-  end
-  }
+      vim.diagnostic.enable(true, nil)
+      vim.lsp.inlay_hint.enable(true, nil)
+
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          local bufnr = args.buf
+          local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "must have valid client")
+
+          vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
+          vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
+          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
+          vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+
+          vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = 0 })
+          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
+
+          local filetype = vim.bo[bufnr].filetype
+          if disable_semantic_tokens[filetype] then
+            client.server_capabilities.semanticTokensProvider = nil
+          end
+        end,
+      })
+
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          javascript = { { "prettierd", "prettier" } },
+          typescript = { { "prettierd", "prettier" } },
+          html = { { "prettierd", "prettier" } },
+          css = { { "prettierd", "prettier" } },
+          cs = { "csharpier" },
+        },
+        format_on_save = {
+          lsp_fallback = true,
+          timeout_ms = 500,
+        },
+      })
+    end,
+  },
 }
