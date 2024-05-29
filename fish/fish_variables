@@ -6,6 +6,7 @@ SETUVAR --export BROWSER:/usr/bin/firefox
 SETUVAR DOTNET_ROOT:/usr/share/dotnet/
 SETUVAR --export EDITOR:nvim
 SETUVAR --export GUI_EDITOR:nvim
+SETUVAR --export HSA_OVERRIDE_GFX_VERSION:11\x2e0\x2e0
 SETUVAR JAVA_HOME:/usr/lib/jvm/java\x2d11\x2dopenjdk/
 SETUVAR JavaSdkDirectory:/usr/lib/jvm/java\x2d11\x2dopenjdk/
 SETUVAR --export MSBuildSDKsPath:/usr/share/dotnet/sdk/8\x2e0\x2e105/Sdks
