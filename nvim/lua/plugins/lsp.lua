@@ -19,15 +19,26 @@ return {
         enable = true,
       },
     },
-    config = function(_, opts)
+    config = function()
       require("neodev").setup({})
 
       local capabilities = nil
       capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
-
+      local project_lib_path = vim.fn.expand("./node_modules/")
       local global_lib_path = vim.fn.expand("~/.bun/install/global/node_modules")
+      local cmd = {
+        "ngserver",
+        "--stdio",
+        "--tsProbeLocations",
+        global_lib_path,
+        project_lib_path,
+        "--ngProbeLocations",
+        global_lib_path,
+        project_lib_path,
+        "--includeCompletionsWithSnippetText",
+      }
 
       local servers = {
         bashls = true,
@@ -42,15 +53,10 @@ return {
         pyright = true,
         zls = true,
         angularls = {
-          cmd = {
-            "ngserver",
-            "--stdio",
-            "--tsProbeLocations",
-            global_lib_path,
-            "--ngProbeLocations",
-            global_lib_path,
-            "--includeCompletionWithSnippetText",
-          },
+          cmd = cmd,
+          on_new_config = function(new_config, new_root_dir)
+            new_config.cmd = cmd
+          end,
         },
         lua_ls = {
           settings = {
