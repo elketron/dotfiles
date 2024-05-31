@@ -48,6 +48,7 @@ return {
         volar = true,
         gopls = true,
         tailwindcss = true,
+        html = true,
         csharp_ls = true,
         tsserver = true,
         pyright = true,
