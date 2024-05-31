@@ -24,6 +24,14 @@ return {
   },
   {
     "sindrets/diffview.nvim",
-    config = function() end,
+    config = function()
+      vim.keymap.set("n", "<leader>do", "<cmd>DiffviewOpen<cr>", { silent = true, noremap = true })
+    end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup({})
+    end,
   },
 }

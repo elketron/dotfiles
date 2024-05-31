@@ -41,8 +41,3 @@ vim.keymap.set("n", "<leader>tr", "<cmd>Telescope treesitter<cr>")
 vim.keymap.set("n", "<leader>k", "<cmd>Telescope keymaps<cr>")
 vim.keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<cr>")
 vim.keymap.set("n", "<leader>li", "<cmd>Telescope lsp_implementations<cr>")
-
--- ----------------------------------------------------------------------------
--- lazygit
--- ----------------------------------------------------------------------------
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>")
