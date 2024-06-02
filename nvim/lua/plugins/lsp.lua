@@ -52,6 +52,7 @@ return {
         csharp_ls = true,
         tsserver = true,
         pyright = true,
+        --pylyzer = true,
         zls = true,
         angularls = {
           cmd = cmd,
