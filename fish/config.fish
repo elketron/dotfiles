@@ -41,6 +41,8 @@ alias gv="nvim --listen ~/.cache/nvim/godot.pipe"
 alias upd="paru -Syu --sudoloop"
 alias q="exit"
 alias pyi="pip install --user"
+alias sch="slurp | grim -g - (xdg-user-dir Pictures)/(date
+ + 'screenshot_%Y-%m-%d-%H%M%S.png')"
 
 alias ydlm="yt-dlp -x --audio-format 'mp3'"
 alias ydlv="yt-dlp -f 'betvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
