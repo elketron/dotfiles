@@ -17,3 +17,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "WinNew", "VimResized" }, 
     vim.opt.scrolloff = vim.api.nvim_win_get_height(0)
   end,
 })
+
+-- refresh codelens on TextChanged and InsertLeave as well
+--vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach" }, {
+--  --buffer = 0,
+--  callback = vim.lsp.codelens.refresh,
+--})
+--
+---- trigger codelens refresh
+--vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })

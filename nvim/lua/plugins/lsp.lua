@@ -25,6 +25,12 @@ return {
       local capabilities = nil
       capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      capabilities.workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+        },
+      }
+
       local lspconfig = require("lspconfig")
       local project_lib_path = vim.fn.expand("./node_modules/")
       local global_lib_path = vim.fn.expand("~/.bun/install/global/node_modules")
@@ -52,6 +58,7 @@ return {
         csharp_ls = true,
         tsserver = true,
         pyright = true,
+        markdown_oxide = true,
         --pylyzer = true,
         zls = true,
         angularls = {

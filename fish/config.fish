@@ -46,6 +46,7 @@ alias sch="slurp | grim -g - (xdg-user-dir Pictures)/(date
 
 alias ydlm="yt-dlp -x --audio-format 'mp3'"
 alias ydlv="yt-dlp -f 'betvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+alias edit="zk edit -i"
 
 function gic --description "clone a repo arg is name of owner" 
     gh repo clone (gh repo list $argv | grep -Po "^[^.\t]*" | fzf)
