@@ -50,7 +50,18 @@ return {
         bashls = true,
         rust_analyzer = true,
         cssls = true,
-        sqlls = true,
+        --sqlls = true,
+        --sqls = {
+        --  settings = {
+        --    sqls = {
+        --      connections = {
+        --        {
+        --          driver = "sqlite",
+        --        },
+        --      },
+        --    },
+        --  },
+        --},
         volar = true,
         gopls = true,
         tailwindcss = true,

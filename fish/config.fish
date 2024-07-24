@@ -1,8 +1,8 @@
-#set -Ux EDITOR nvim
+set -gx EDITOR nvim
 #set -Ux GUI_EDITOR nvim
 #set -Ux BROWSER /usr/bin/qutebrowser
 #set -Ux TERMINAL /usr/bin/kitty
-#set -Ux VISUAL nvim
+set -gx VISUAL nvim
 #set -Ux XDG_CONFIG_HOME /home/odmar/.config
 #set -Ux fish_greeting
 set -Ux MSBuildSDKsPath /usr/share/dotnet/sdk/(dotnet --version)/Sdks
@@ -47,6 +47,7 @@ alias sch="slurp | grim -g - (xdg-user-dir Pictures)/(date
 alias ydlm="yt-dlp -x --audio-format 'mp3'"
 alias ydlv="yt-dlp -f 'betvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
 alias edit="zk edit -i"
+alias yz="yazi"
 
 function gic --description "clone a repo arg is name of owner" 
     gh repo clone (gh repo list $argv | grep -Po "^[^.\t]*" | fzf)
