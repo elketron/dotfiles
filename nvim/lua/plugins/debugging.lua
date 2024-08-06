@@ -39,7 +39,7 @@ return {
       }
       --
 
-      require("neodev").setup({ library = { plugins = { "nvim-dap-ui" }, types = true } })
+      --require("neodev").setup({ library = { plugins = { "nvim-dap-ui" }, types = true } })
 
       vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
       vim.keymap.set("n", "<leader>gb", dap.run_to_cursor)
