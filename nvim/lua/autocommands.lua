@@ -1,3 +1,4 @@
+local close_unfocused_split_and_new = require("functions.close_unfocused_split_and_new")
 local diagnostics_group = vim.api.nvim_create_augroup("Diagnostics", {})
 
 vim.api.nvim_create_autocmd("FileType", { pattern = "TelescopeResults", command = [[setlocal nofoldenable]] })
@@ -18,11 +19,13 @@ vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "WinNew", "VimResized" }, 
   end,
 })
 
--- refresh codelens on TextChanged and InsertLeave as well
---vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach" }, {
---  --buffer = 0,
---  callback = vim.lsp.codelens.refresh,
---})
---
----- trigger codelens refresh
---vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = vim.api.nvim_create_augroup("help_window_right", {}),
+  pattern = { "*.txt" },
+  callback = function()
+    if vim.o.filetype == "help" then
+      --close_unfocused_split_and_new("vsplit", true)
+      vim.cmd.wincmd("L")
+    end
+  end,
+})

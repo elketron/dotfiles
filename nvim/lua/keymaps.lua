@@ -1,3 +1,4 @@
+local close_unfocused_split_and_new = require("functions.close_unfocused_split_and_new")
 -- ----------------------------------------------------------------------------
 -- normal mode
 -- ----------------------------------------------------------------------------
@@ -13,6 +14,15 @@ vim.keymap.set("n", "<leader>dp", ":lua vim.diagnostic.goto_prev()<cr>")
 
 vim.keymap.set("n", "<leader>eq", ':lua require("nabla").action()<cr>')
 vim.keymap.set("n", "<leader>re", ":lua vim.lsp.buf.rename()<cr>")
+vim.keymap.set("n", "<A-k>", ":lua print('hello')<cr>")
+
+vim.keymap.set("n", "<C-W>s", function()
+  close_unfocused_split_and_new("split")
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-W>v", function()
+  close_unfocused_split_and_new("vsplit")
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>w", "<C-w>w", { noremap = true, silent = true })
 
 -- ----------------------------------------------------------------------------
 -- visual mode

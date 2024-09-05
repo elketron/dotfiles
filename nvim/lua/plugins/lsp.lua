@@ -1,3 +1,12 @@
+local close_unfocused_split_and_new = require("functions.close_unfocused_split_and_new")
+local function split_window_res()
+  close_unfocused_split_and_new("vsplit")
+  vim.lsp.buf.definition()
+  vim.defer_fn(function()
+    vim.cmd("wincmd p")
+  end, 300)
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -128,6 +137,7 @@ return {
 
           vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
+          vim.keymap.set("n", "vd", split_window_res, { buffer = 0 })
           vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
           vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
           vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
