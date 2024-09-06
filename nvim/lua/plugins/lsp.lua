@@ -4,7 +4,7 @@ local function split_window_res()
   vim.lsp.buf.definition()
   vim.defer_fn(function()
     vim.cmd("wincmd p")
-  end, 300)
+  end, 500)
 end
 
 return {
@@ -73,7 +73,8 @@ return {
         tailwindcss = true,
         html = true,
         csharp_ls = true,
-        tsserver = true,
+        --tsserver = true,
+        ts_ls = true,
         pyright = true,
         markdown_oxide = true,
         --pylyzer = true,
