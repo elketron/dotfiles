@@ -54,7 +54,7 @@ return {
 
       local servers = {
         bashls = true,
-        rust_analyzer = true,
+        --rust_analyzer = true,
         cssls = true,
         --sqlls = true,
         --sqls = {

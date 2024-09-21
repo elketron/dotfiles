@@ -9,7 +9,7 @@ SETUVAR --export GUI_EDITOR:nvim
 SETUVAR --export HSA_OVERRIDE_GFX_VERSION:11\x2e0\x2e0
 SETUVAR JAVA_HOME:/usr/lib/jvm/java\x2d11\x2dopenjdk/
 SETUVAR JavaSdkDirectory:/usr/lib/jvm/java\x2d11\x2dopenjdk/
-SETUVAR --export MSBuildSDKsPath:/usr/share/dotnet/sdk/8\x2e0\x2e107/Sdks
+SETUVAR --export MSBuildSDKsPath:/usr/share/dotnet/sdk/8\x2e0\x2e108/Sdks
 SETUVAR PROJECT_DIR:/home/odmar
 SETUVAR QT_QPA_PLATFORM:wayland
 SETUVAR --export QT_WAYLAND_DISABLE_WINDOWDECORATION:1

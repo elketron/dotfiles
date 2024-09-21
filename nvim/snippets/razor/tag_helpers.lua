@@ -1,4 +1,4 @@
-local ts_query = require "nvim-treesitter.query"
+local ts_query = require("nvim-treesitter.query")
 
 local lang = "c_sharp"
 
@@ -36,7 +36,7 @@ local function GenRoutesAsChoice()
 end
 
 return {
-    s("roa", {
-        d(1, GenRoutesAsChoice)
-    })
+  s("roa", {
+    d(1, GenRoutesAsChoice),
+  }),
 }

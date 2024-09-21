@@ -27,6 +27,7 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
   },
+
   --  {
   --    "vhyrro/luarocks.nvim",
   --    priority = 1001, -- this plugin needs to run before anything else
