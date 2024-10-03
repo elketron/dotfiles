@@ -157,10 +157,11 @@ return {
       require("conform").setup({
         formatters_by_ft = {
           lua = { "stylua" },
-          javascript = { { "prettierd", "prettier" } },
-          typescript = { { "prettierd", "prettier" } },
-          html = { { "prettierd", "prettier" } },
-          css = { { "prettierd", "prettier" } },
+          javascript = { "prettierd", "prettier" },
+          typescript = { "prettierd", "prettier" },
+          typescriptreact = { "prettierd", "prettier" },
+          html = { "prettierd", "prettier" },
+          css = { "prettierd", "prettier" },
           cs = { "csharpier" },
         },
         format_on_save = {
