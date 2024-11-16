@@ -72,19 +72,20 @@ return {
         gopls = true,
         tailwindcss = true,
         html = true,
-        csharp_ls = true,
+        --csharp_ls = true,
         --tsserver = true,
         ts_ls = true,
-        pyright = true,
+        --pyright = true,
         markdown_oxide = true,
         --pylyzer = true,
         zls = true,
-        angularls = {
-          cmd = cmd,
-          on_new_config = function(new_config, new_root_dir)
-            new_config.cmd = cmd
-          end,
-        },
+        angularls = true,
+        --   {
+        --   cmd = cmd,
+        --   on_new_config = function(new_config, new_root_dir)
+        --     new_config.cmd = cmd
+        --   end,
+        -- },
         lua_ls = {
           settings = {
             Lua = {
