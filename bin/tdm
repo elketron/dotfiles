@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# Ensure TODOS_FOLDER environment variable is set
+if [ -z "$TODOS_FOLDER" ]; then
+  echo "Error: TODOS_FOLDER environment variable is not set."
+  echo "Please set it to the directory where you want to store todo files."
+  exit 1
+fi
+
+# Create the directory if it doesn't exist
+mkdir -p "$TODOS_FOLDER"
+
+# Function to create a todo file
+create_todo_file() {
+  local target_date=$1
+  local todo_file="${TODOS_FOLDER}/${target_date}.md"
+
+  if [ -f "$todo_file" ]; then
+    echo "Todo file already exists: $todo_file"
+    exit 1
+  fi
+
+  cat >"$todo_file" <<EOF
+# Todo List for ${target_date}
+---
+## Notes
+- 
+EOF
+  echo "Created new todo file: $todo_file"
+}
+
+# Function to list files with fzf and open selected file
+list_and_open_todos() {
+  local selected_file=$(find "$TODOS_FOLDER" -name "*.md" | sort -r | fzf)
+
+  if [ -n "$selected_file" ]; then
+    nvim "$selected_file"
+  fi
+}
+
+# Main script logic
+case "$1" in
+"")
+  # Default behavior - today's file
+  today=$(date +"%Y-%m-%d")
+  todo_file="${TODOS_FOLDER}/${today}.md"
+
+  # Check if file exists, if not create it with a template
+  if [ ! -f "$todo_file" ]; then
+    create_todo_file "$today"
+  fi
+
+  # Open the file in Neovim
+  nvim "$todo_file"
+  ;;
+
+"-n")
+  # Create file for tomorrow
+  tomorrow=$(date -d "tomorrow" +"%Y-%m-%d")
+  create_todo_file "$tomorrow"
+  nvim "${TODOS_FOLDER}/${tomorrow}.md"
+  ;;
+
+"-l")
+  # List files with fzf
+  list_and_open_todos
+  ;;
+
+*)
+  echo "Usage: tdm [option]"
+  echo "  No option: Open/create today's todo file"
+  echo "  -n: Create todo file for tomorrow"
+  echo "  -l: List and open todo files using fzf"
+  exit 1
+  ;;
+esac
