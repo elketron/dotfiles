@@ -79,13 +79,12 @@ return {
         markdown_oxide = true,
         --pylyzer = true,
         zls = true,
-        angularls = true,
-        --   {
-        --   cmd = cmd,
-        --   on_new_config = function(new_config, new_root_dir)
-        --     new_config.cmd = cmd
-        --   end,
-        -- },
+        angularls = {
+          cmd = cmd,
+          on_new_config = function(new_config, new_root_dir)
+            new_config.cmd = cmd
+          end,
+        },
         lua_ls = {
           settings = {
             Lua = {
