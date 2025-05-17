@@ -2,14 +2,14 @@
 # VERSION: 3.0
 SETUVAR --export ANKI_WAYLAND:wayland
 SETUVAR AndroidSdkDirectory:/home/odmar/Android/Sdk/
-SETUVAR --export BROWSER:/usr/bin/firefox
+SETUVAR --export BROWSER:zen\x2dbrowser
 SETUVAR DOTNET_ROOT:/usr/share/dotnet/
 SETUVAR --export EDITOR:nvim
 SETUVAR --export GUI_EDITOR:nvim
 SETUVAR --export HSA_OVERRIDE_GFX_VERSION:11\x2e0\x2e0
 SETUVAR JAVA_HOME:/usr/lib/jvm/java\x2d11\x2dopenjdk/
 SETUVAR JavaSdkDirectory:/usr/lib/jvm/java\x2d11\x2dopenjdk/
-SETUVAR --export MSBuildSDKsPath:/usr/share/dotnet/sdk/9\x2e0\x2e100/Sdks
+SETUVAR --export MSBuildSDKsPath:/usr/share/dotnet/sdk/9\x2e0\x2e203/Sdks
 SETUVAR PROJECT_DIR:/home/odmar
 SETUVAR QT_QPA_PLATFORM:wayland
 SETUVAR --export QT_WAYLAND_DISABLE_WINDOWDECORATION:1
@@ -21,7 +21,7 @@ SETUVAR --export XDG_CONFIG_HOME:/home/odmar/\x2econfig
 SETUVAR --export XDG_CURRENT_DESKTOP:sway
 SETUVAR --export XDG_SESSION_TYPE:wayland
 SETUVAR --export ZK_NOTEBOOK_DIR:/home/odmar/Sync/notes/
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
@@ -39,7 +39,7 @@ SETUVAR fish_color_operator:00a6b2
 SETUVAR fish_color_param:00afff
 SETUVAR fish_color_quote:999900
 SETUVAR fish_color_redirection:00afff
-SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_search_match:white\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen

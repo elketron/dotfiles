@@ -1,5 +1,12 @@
 return {
   {
+    "rayliwell/tree-sitter-rstml",
+    dependencies = {
+      "nvim-treesitter",
+    },
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     lazy = false,
@@ -15,6 +22,8 @@ return {
         indent = { enable = true },
         incremental_selection = { enable = true },
       })
+
+      require("tree-sitter-rstml").setup()
     end,
   },
   {

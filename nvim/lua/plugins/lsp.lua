@@ -37,6 +37,8 @@ return {
         },
       }
 
+      vim.highlight.priorities.semantic_tokens = 95
+
       local lspconfig = require("lspconfig")
       local project_lib_path = vim.fn.expand("./node_modules/")
       local global_lib_path = vim.fn.expand("~/.bun/install/global/node_modules")
@@ -70,18 +72,35 @@ return {
         --},
         volar = true,
         gopls = true,
+        svelte = true,
         tailwindcss = true,
         html = true,
         --csharp_ls = true,
         --tsserver = true,
-        ts_ls = true,
+        ts_ls = {
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = global_lib_path .. "/@vue/typescript-plugin",
+                languages = { "javascript", "typescript", "vue" },
+              },
+            },
+          },
+          filetypes = {
+            "javascript",
+            "typescript",
+            "vue",
+          },
+        },
         --pyright = true,
         markdown_oxide = true,
         --pylyzer = true,
         zls = true,
+        clangd = true,
         angularls = {
           cmd = cmd,
-          on_new_config = function(new_config, new_root_dir)
+          on_new_config = function(new_config, _)
             new_config.cmd = cmd
           end,
         },
@@ -163,6 +182,7 @@ return {
           html = { "prettierd", "prettier" },
           css = { "prettierd", "prettier" },
           cs = { "csharpier" },
+          vue = { "prettierd", "prettier" },
         },
         format_on_save = {
           lsp_fallback = true,

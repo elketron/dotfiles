@@ -1,13 +1,15 @@
 return {
   {
-    "seblj/roslyn.nvim",
+    "seblyng/roslyn.nvim",
     dependencies = {
       "williamboman/mason.nvim",
     },
     lazy = false,
 
     ft = "cs",
+
     opts = {
+      filewatching = "auto",
       config = {
         settings = {
           ["csharp|background_analysis"] = {
@@ -45,58 +47,58 @@ return {
       },
     },
   },
-  {
-    "tris203/rzls.nvim",
-    dependencies = {},
-    config = function()
-      local capabilities = nil
-      capabilities = require("cmp_nvim_lsp").default_capabilities()
+  -- {
+  --   "tris203/rzls.nvim",
+  --   dependencies = {},
+  --   config = function()
+  --     local capabilities = nil
+  --     capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      capabilities.workspace = {
-        didChangeWatchedFiles = {
-          dynamicRegistration = true,
-        },
-      }
+  --     capabilities.workspace = {
+  --       didChangeWatchedFiles = {
+  --         dynamicRegistration = true,
+  --       },
+  --     }
 
-      require("roslyn").setup({
-        args = {
-          "--logLevel=Information",
-          "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
-          "--razorSourceGenerator=" .. vim.fs.joinpath(
-            vim.fn.stdpath("data") --[[@as string]],
-            "mason",
-            "packages",
-            "roslyn",
-            "libexec",
-            "Microsoft.CodeAnalysis.Razor.Compiler.dll"
-          ),
-          "--razorDesignTimePath=" .. vim.fs.joinpath(
-            vim.fn.stdpath("data") --[[@as string]],
-            "mason",
-            "packages",
-            "rzls",
-            "libexec",
-            "Targets",
-            "Microsoft.NET.Sdk.Razor.DesignTime.targets"
-          ),
-        },
-        config = {
-          capabilities = capabilities,
-          handlers = require("rzls.roslyn_handlers"),
-        },
-      })
+  --     require("roslyn").setup({
+  --       args = {
+  --         "--logLevel=Information",
+  --         "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
+  --         "--razorSourceGenerator=" .. vim.fs.joinpath(
+  --           vim.fn.stdpath("data") --[[@as string]],
+  --           "mason",
+  --           "packages",
+  --           "roslyn",
+  --           "libexec",
+  --           "Microsoft.CodeAnalysis.Razor.Compiler.dll"
+  --         ),
+  --         "--razorDesignTimePath=" .. vim.fs.joinpath(
+  --           vim.fn.stdpath("data") --[[@as string]],
+  --           "mason",
+  --           "packages",
+  --           "rzls",
+  --           "libexec",
+  --           "Targets",
+  --           "Microsoft.NET.Sdk.Razor.DesignTime.targets"
+  --         ),
+  --       },
+  --       config = {
+  --         capabilities = capabilities,
+  --         handlers = require("rzls.roslyn_handlers"),
+  --       },
+  --     })
 
-      require("trouble").setup({
-        modes = {
-          diagnostics = {
-            filter = function(items)
-              return vim.tbl_filter(function(item)
-                return not string.match(item.basename, [[%__virtual.cs$]])
-              end, items)
-            end,
-          },
-        },
-      })
-    end,
-  },
+  --     require("trouble").setup({
+  --       modes = {
+  --         diagnostics = {
+  --           filter = function(items)
+  --             return vim.tbl_filter(function(item)
+  --               return not string.match(item.basename, [[%__virtual.cs$]])
+  --             end, items)
+  --           end,
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
 }
